@@ -1,11 +1,15 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    kotlin("kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
     namespace = "com.example.mungge_groom"
     compileSdk = 34
+
+
 
     defaultConfig {
         applicationId = "com.example.mungge_groom"
@@ -33,10 +37,30 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    // 뷰 바인딩 활성화
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+
+
 }
 
 dependencies {
 
+    //네비게이션
+    val nav_version = "2.8.0"
+    // Views/Fragments integration
+    implementation("androidx.navigation:navigation-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-ui:$nav_version")
+    // Feature module support for Fragments
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+    // Testing Navigation
+    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+
+
+    kapt(libs.androidx.databinding.compiler)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
