@@ -1,4 +1,4 @@
-package com.example.umc_stepper.base
+package com.example.mungge_groom.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
