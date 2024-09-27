@@ -49,18 +49,19 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     //네비게이션
     val nav_version = "2.8.0"
     // Views/Fragments integration
-    implementation("androidx.navigation:navigation-fragment:$nav_version")
-    implementation("androidx.navigation:navigation-ui:$nav_version")
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
     // Feature module support for Fragments
-    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+    implementation(libs.androidx.navigation.dynamic.features.fragment)
     // Testing Navigation
-    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+    androidTestImplementation(libs.androidx.navigation.testing)
 
 
-    kapt(libs.androidx.databinding.compiler)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

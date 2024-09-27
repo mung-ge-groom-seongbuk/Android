@@ -1,5 +1,6 @@
-package com.example.mungge_groom
+package com.example.mungge_groom.home
 
+import com.example.mungge_groom.R
 import com.example.mungge_groom.databinding.ActivityMainBinding
 import com.example.mungge_groom.base.BaseActivity
 

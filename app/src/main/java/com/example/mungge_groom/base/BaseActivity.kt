@@ -28,6 +28,8 @@ abstract class BaseActivity<VB: ViewBinding>(@LayoutRes private val layoutRes: I
 
     abstract fun setLayout()
 
+
+
     fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
@@ -36,6 +38,7 @@ abstract class BaseActivity<VB: ViewBinding>(@LayoutRes private val layoutRes: I
         val intent = Intent(this, activity)
         startActivity(intent)
     }
+
 
     fun startActivityWithClear(activity: Class<*>?) {
         val intent = Intent(this, activity)
