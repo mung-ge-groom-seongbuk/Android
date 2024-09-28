@@ -7,10 +7,11 @@
     <item
         android:id="@+id/chatListFragment"
         android:title="@string/chat"/>
+    <!--        android:icon="@drawable/ic_menu_chat"-->
 
     <item
         android:id="@+id/myPageFragment"
         android:title="@string/my_page"/>
-<!--        android:icon="@drawable/ic_menu_facility"-->
+<!--        android:icon="@drawable/ic_menu_myPage"-->
 
 </menu>
