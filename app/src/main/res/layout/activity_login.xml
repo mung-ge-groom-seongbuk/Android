@@ -1,25 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#ffffff"
     tools:context=".account.LoginActivity">
 
-    <Button
-        android:id="@+id/login_btn"
+    <!-- Login Title -->
+    <TextView
+        android:id="@+id/login_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="로그인"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Username or Email Input -->
+    <EditText
+        android:id="@+id/login_username_input_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="로그인"
+        android:hint="Enter Your Username / Email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/login_password_input_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Login Button -->
+
+    <!-- SNS Login Text -->
+    <Button
+        android:id="@+id/login_login_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="#808080"
+        android:text="Login"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/login_sns_description_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:text="SNS계정으로 간편로그인하세요."
+        android:textColor="#808080" />
+
+    <!-- Kakao Login Button -->
+    <Button
+        android:id="@+id/login_kakao_login_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카카오 로그인"
+        android:background="#FFE812"
+        android:drawableStart="@drawable/kakao"
+        android:gravity="center_vertical"
+        android:textColor="#000000"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Register Link Section -->
+    <TextView
+        android:id="@+id/login_register_prompt_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아직 회원이 아니신가요?"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        android:textColor="#000000"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/login_signup_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textColor="#1E90FF"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+        android:gravity="center"/>
+
+</LinearLayout>
