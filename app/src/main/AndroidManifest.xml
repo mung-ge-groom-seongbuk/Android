@@ -13,13 +13,16 @@
         android:theme="@style/Theme.Mungge_groom"
         tools:targetApi="31">
         <activity
-            android:name=".account.StartActivity"
+            android:name=".ui.splash.SplashActivity"
             android:exported="false" />
         <activity
-            android:name=".account.SignUpActivity"
+            android:name=".ui.account.StartActivity"
             android:exported="false" />
         <activity
-            android:name=".account.LoginActivity"
+            android:name=".ui.account.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.account.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home.MainActivity"
+            android:name=".ui.home.MainActivity"
             android:exported="true" />
     </application>
 
