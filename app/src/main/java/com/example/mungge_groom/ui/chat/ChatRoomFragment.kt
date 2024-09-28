@@ -1,4 +1,4 @@
-package com.example.mungge_groom.chat
+package com.example.mungge_groom.ui.chat
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
