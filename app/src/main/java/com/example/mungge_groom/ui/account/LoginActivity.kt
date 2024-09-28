@@ -12,7 +12,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
     private fun setOnClickListener() {
 
-        binding.loginLoginButton.setOnClickListener {
+        binding.loginLoginBt.setOnClickListener {
             startActivityWithClear(MainActivity::class.java)
         }
 
