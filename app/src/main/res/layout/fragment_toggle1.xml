@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        tools:context=".home.Toggle1Fragment">
+        tools:context=".ui.home.Toggle1Fragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

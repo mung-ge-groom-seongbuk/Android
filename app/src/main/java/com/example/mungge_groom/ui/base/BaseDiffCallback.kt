@@ -1,4 +1,4 @@
-package com.example.mungge_groom.base
+package com.example.mungge_groom.ui.base
 
 import androidx.recyclerview.widget.DiffUtil
 

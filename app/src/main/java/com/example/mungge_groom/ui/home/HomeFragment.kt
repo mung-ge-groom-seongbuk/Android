@@ -1,9 +1,9 @@
-package com.example.mungge_groom.home
+package com.example.mungge_groom.ui.home
 
 import androidx.fragment.app.Fragment
 import com.example.mungge_groom.R
-import com.example.mungge_groom.base.BaseFragment
-import com.example.mungge_groom.base.FragmentAdapter
+import com.example.mungge_groom.ui.base.BaseFragment
+import com.example.mungge_groom.ui.base.FragmentAdapter
 import com.example.mungge_groom.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
