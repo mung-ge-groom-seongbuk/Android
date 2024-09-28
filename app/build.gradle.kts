@@ -61,6 +61,10 @@ dependencies {
     // Testing Navigation
     androidTestImplementation(libs.androidx.navigation.testing)
 
+    //Googel Map
+    implementation (libs.play.services.maps)
+    implementation (libs.play.services.location)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
