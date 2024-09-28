@@ -1,4 +1,4 @@
-package com.example.mungge_groom.notification
+package com.example.mungge_groom.ui.notification
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
