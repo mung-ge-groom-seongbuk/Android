@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/home"/>
+<!--        android:icon="@drawable/ic_menu_home"-->
+    <item
+        android:id="@+id/chatListFragment"
+        android:title="@string/chat"/>
+
+    <item
+        android:id="@+id/myPageFragment"
+        android:title="@string/my_page"/>
+<!--        android:icon="@drawable/ic_menu_facility"-->
+
+</menu>

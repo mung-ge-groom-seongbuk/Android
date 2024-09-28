@@ -1,4 +1,4 @@
-package com.example.mungge_groom.account
+package com.example.mungge_groom.ui.account
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
