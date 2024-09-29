@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -51,20 +52,20 @@ dependencies {
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    //네비게이션
-    val nav_version = "2.8.0"
-    // Views/Fragments integration
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-    // Feature module support for Fragments
-    implementation(libs.androidx.navigation.dynamic.features.fragment)
-    // Testing Navigation
-    androidTestImplementation(libs.androidx.navigation.testing)
+
+    // navigation
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
 
     //Googel Map
     implementation (libs.play.services.maps)
     implementation (libs.play.services.location)
+    implementation(libs.glide)
+    kapt(libs.compiler.v4151)
 
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

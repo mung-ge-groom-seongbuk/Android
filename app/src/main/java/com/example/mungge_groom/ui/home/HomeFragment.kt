@@ -7,7 +7,9 @@ import com.example.mungge_groom.ui.base.FragmentAdapter
 import com.example.mungge_groom.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private lateinit var pageList: List<Fragment>
     override fun setLayout() {
