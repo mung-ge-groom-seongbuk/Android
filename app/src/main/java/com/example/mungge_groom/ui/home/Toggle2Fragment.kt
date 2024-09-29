@@ -17,7 +17,9 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.MapView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class Toggle2Fragment : BaseFragment<FragmentToggle2Binding>(R.layout.fragment_toggle2),
     OnMapReadyCallback {
 
