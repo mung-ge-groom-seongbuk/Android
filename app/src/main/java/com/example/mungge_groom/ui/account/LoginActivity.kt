@@ -15,6 +15,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         binding.loginLoginBt.setOnClickListener {
             startActivityWithClear(MainActivity::class.java)
         }
+        binding.loginSignupTv.setOnClickListener {
+            startActivityWithClear(SignUpActivity::class.java)
+        }
 
     }
 }
