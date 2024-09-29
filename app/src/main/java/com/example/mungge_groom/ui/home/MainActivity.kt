@@ -6,7 +6,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.mungge_groom.R
 import com.example.mungge_groom.databinding.ActivityMainBinding
 import com.example.mungge_groom.ui.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun setLayout() {
         setBottomNav()
