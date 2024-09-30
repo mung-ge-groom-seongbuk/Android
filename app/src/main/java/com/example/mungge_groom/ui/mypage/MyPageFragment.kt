@@ -65,13 +65,13 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         })
 
         val entry_chart = ArrayList<BarEntry>()
-        entry_chart.add(BarEntry(1f, 1f))
-        entry_chart.add(BarEntry(2f, 0f))
-        entry_chart.add(BarEntry(3f, 2f))
-        entry_chart.add(BarEntry(4f, 3f))
-        entry_chart.add(BarEntry(5f, 4f))
-        entry_chart.add(BarEntry(6f, 2f))
-        entry_chart.add(BarEntry(7f, 3f))
+        entry_chart.add(BarEntry(1f, 10f))
+        entry_chart.add(BarEntry(2f, 40f))
+        entry_chart.add(BarEntry(3f, 20f))
+        entry_chart.add(BarEntry(4f, 40f))
+        entry_chart.add(BarEntry(5f, 40f))
+        entry_chart.add(BarEntry(6f, 40f))
+        entry_chart.add(BarEntry(7f, 30f))
         setupBarChart(requireView(), binding.chart.id, entry_chart, false, 10, 0.75f)
 
 
@@ -101,7 +101,7 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         val leftAxis = barChart.axisLeft
         leftAxis.setDrawGridLines(showGrid) // 그리드 표시 여부
         leftAxis.axisMinimum = 0f // 최소값을 0으로 설정
-        leftAxis.axisMaximum = 100f // 최대값을 100으로 설정
+        leftAxis.axisMaximum = 50f // 최대값을 100으로 설정
 
         // Y축 설정 (우측 비활성화)
         val rightAxis = barChart.axisRight
