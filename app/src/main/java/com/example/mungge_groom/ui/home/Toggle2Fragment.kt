@@ -51,32 +51,40 @@ class Toggle2Fragment : BaseFragment<FragmentToggle2Binding>(R.layout.fragment_t
     }
 
     private fun setOnClick(){
-        binding.floating.tag = "start"
-        binding.floating.setOnClickListener {
-            when (binding.floating.tag) {
+        binding.floatingStart.tag = "start"
+        binding.floatingStart.setOnClickListener {
+            when (binding.floatingStart.tag) {
                 "start" -> {
-                    // 상태를 "stop"으로 변경하고 이미지 변경
-                    binding.floating.tag = "stop"
-                    binding.floating.foreground = ContextCompat.getDrawable(requireContext(), R.drawable.ic_button_stop)
+                    // 상태를 "pause"으로 변경하고 이미지 변경
+                    binding.floatingStart.tag = "pause"
+                    binding.floatingStart.foreground = ContextCompat.getDrawable(requireContext(), R.drawable.ic_button_pause)
                 }
-                "stop" -> {
-                    // 상태를 "start"로 변경하고 이미지 변경
-                    binding.floating.tag = "start"
-                    binding.floating.foreground = ContextCompat.getDrawable(requireContext(), R.drawable.ic_button_start)
+                "pause" -> {
+                    binding.floatingStart.tag = "stop"
+                    // 상태를 "stop"로 변경하고 이미지 변경
+                    binding.floatingPlay.visibility = View.VISIBLE
+                    binding.floatingSquare.visibility = View.VISIBLE
+                    binding.floatingStart.visibility = View.GONE
                 }
+
             }
         }
 
-        binding.floating.setOnLongClickListener {
-            if (binding.floating.tag == "stop") {
-                Toast.makeText(requireContext(), "끝", Toast.LENGTH_SHORT).show()
-                // 상태를 "start"로 변경하고 이미지 변경
-                binding.floating.tag = "start"
-                binding.floating.foreground = ContextCompat.getDrawable(requireContext(), R.drawable.ic_button_start)
-                true
-            } else {
-                false
-            }
+        binding.floatingSquare.setOnClickListener{
+            binding.floatingStart.tag = "start"
+            binding.floatingStart.foreground = ContextCompat.getDrawable(requireContext(), R.drawable.ic_button_start)
+            binding.floatingStart.visibility = View.VISIBLE
+            binding.floatingPlay.visibility = View.GONE
+            binding.floatingSquare.visibility = View.GONE
+        }
+
+        binding.floatingPlay.setOnClickListener{
+            binding.floatingStart.tag = "pause"
+            binding.floatingStart.foreground = ContextCompat.getDrawable(requireContext(), R.drawable.ic_button_pause)
+            binding.floatingStart.visibility = View.VISIBLE
+            binding.floatingPlay.visibility = View.GONE
+            binding.floatingSquare.visibility = View.GONE
+
         }
     }
 
