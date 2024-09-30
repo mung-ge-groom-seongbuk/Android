@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_fill_back_square_rounded_12dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<TextView
+    android:id="@+id/dialog_send_matching_title_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="20dp"
+    android:textStyle="bold"
+    android:text="OO님께 매칭을 보내시겠어요?"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="20dp"/>
+    
+    <EditText
+        android:textColorHint="#A09CAB"
+        android:hint="우리 매칭해요~"
+        android:gravity="top"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:id="@+id/dialog_send_matching_message_et"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        app:layout_constraintTop_toBottomOf="@id/dialog_send_matching_title_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/shape_fill_white_square_rounded_12dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialog_send_matching_send_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="보내기"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_fill_gray_square_rounded_12dp"
+        app:layout_constraintEnd_toEndOf="@id/dialog_send_matching_message_et"
+        app:layout_constraintTop_toBottomOf="@id/dialog_send_matching_message_et"
+        android:layout_marginTop="30dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialog_send_matching_cancel_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:text="취소"
+        android:background="@drawable/shape_fill_black_square_rounded_12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toStartOf="@id/dialog_send_matching_send_bt"
+        app:layout_constraintTop_toTopOf="@id/dialog_send_matching_send_bt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        />
+
+
+
+    
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
