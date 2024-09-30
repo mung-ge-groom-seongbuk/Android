@@ -6,8 +6,11 @@ import com.example.mungge_groom.databinding.ItemToggle1Binding
 import com.example.mungge_groom.extention.GlobalApplication
 import com.example.mungge_groom.ui.base.BaseAdapter
 import com.example.mungge_groom.ui.base.BaseDiffCallback
+import com.example.mungge_groom.ui.listener.onClickedSendMatch
 
-class Toggle1Adapter : BaseAdapter<Toggle1Data, ItemToggle1Binding> (
+class Toggle1Adapter(
+    private val onClicked: onClickedSendMatch
+) : BaseAdapter<Toggle1Data, ItemToggle1Binding> (
     BaseDiffCallback(
         itemsTheSame = { oldItem, newItem -> oldItem == newItem },
         contentsTheSame = { oldItem, newItem -> oldItem == newItem }
@@ -19,5 +22,8 @@ class Toggle1Adapter : BaseAdapter<Toggle1Data, ItemToggle1Binding> (
     override fun bind(binding: ItemToggle1Binding, item: Toggle1Data) {
         binding.toggle1Item = item
         GlobalApplication.loadProfileImage(binding.itemToggle1ProfileIv,item.profile)
+        binding.itemToggle1SendBt.setOnClickListener{
+            onClicked.onClicked(item)
+        }
     }
 }
