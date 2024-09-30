@@ -19,4 +19,14 @@
         <item name="itemBackground">@android:color/transparent</item>
         <item name="itemRippleColor">@android:color/transparent</item>
     </style>
+
+    <!-- res/values/styles.xml -->
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicator">@drawable/custom_tab_indicator</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">16dp</item>
+        <item name="tabPaddingEnd">16dp</item>
+        <item name="tabBackground">@android:color/transparent</item>
+        <item name="tabIndicatorFullWidth">false</item>
+    </style>
 </resources>

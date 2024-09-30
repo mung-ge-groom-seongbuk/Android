@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.example.mungge_groom.R
@@ -46,8 +47,39 @@ class Toggle2Fragment : BaseFragment<FragmentToggle2Binding>(R.layout.fragment_t
     }
 
     override fun setLayout() {
-
+        setOnClick()
     }
+
+    private fun setOnClick(){
+        binding.floating.tag = "start"
+        binding.floating.setOnClickListener {
+            when (binding.floating.tag) {
+                "start" -> {
+                    // 상태를 "stop"으로 변경하고 이미지 변경
+                    binding.floating.tag = "stop"
+                    binding.floating.foreground = ContextCompat.getDrawable(requireContext(), R.drawable.ic_button_stop)
+                }
+                "stop" -> {
+                    // 상태를 "start"로 변경하고 이미지 변경
+                    binding.floating.tag = "start"
+                    binding.floating.foreground = ContextCompat.getDrawable(requireContext(), R.drawable.ic_button_start)
+                }
+            }
+        }
+
+        binding.floating.setOnLongClickListener {
+            if (binding.floating.tag == "stop") {
+                Toast.makeText(requireContext(), "끝", Toast.LENGTH_SHORT).show()
+                // 상태를 "start"로 변경하고 이미지 변경
+                binding.floating.tag = "start"
+                binding.floating.foreground = ContextCompat.getDrawable(requireContext(), R.drawable.ic_button_start)
+                true
+            } else {
+                false
+            }
+        }
+    }
+
 
     override fun onMapReady(map: GoogleMap) {
         googleMap = map

@@ -23,7 +23,7 @@
             android:layout_height="120dp"
             android:layout_marginBottom="20dp"
             android:backgroundTint="@color/white"
-            android:foreground="@drawable/ic_button_srart"
+            android:foreground="@drawable/ic_button_start"
             app:borderWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

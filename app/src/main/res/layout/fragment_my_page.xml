@@ -1,13 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.mypage.MyPageFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="마이페이지" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.mypage.MyPageFragment">
+
+            <ImageView
+                android:id="@+id/fragment_my_page_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/settings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/fragment_my_page_notify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/notify"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/fragment_my_page_profile_iv"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_setting" />
+
+            <TextView
+                android:id="@+id/fragment_my_page_nickname_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="닉네임"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/fragment_my_page_profile_iv"
+                app:layout_constraintStart_toStartOf="@id/fragment_my_page_profile_iv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_profile_iv" />
+
+            <TextView
+                android:id="@+id/fragment_my_page_description_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="한 줄 소개"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@id/fragment_my_page_nickname_tv"
+                app:layout_constraintStart_toStartOf="@id/fragment_my_page_nickname_tv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_nickname_tv" />
+
+            <TextView
+                android:id="@+id/fragment_my_page_summary_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:text="요약"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_description_tv" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/fragment_my_page_year_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="26dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/fragment_my_page_summary_tv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_summary_tv"
+                app:tabIndicatorColor="@color/tab_indicator"
+                app:tabIndicatorHeight="3dp"
+                app:tabMode="fixed" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/fragment_my_page_vp"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_my_page_year_tv"
+                app:layout_constraintStart_toStartOf="@+id/fragment_my_page_year_tv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_year_tv" />
+
+            <TextView
+                android:id="@+id/fragment_my_page_goal_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="28dp"
+                android:text="나의 목표"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_vp" />
+
+            <TextView
+                android:id="@+id/fragment_my_page_day_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="D - 10"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_goal_tv" />
+
+            <TextView
+                android:id="@+id/fragment_my_page_remain_goal_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="목표 달성까지\n17km 남았어요!"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/fragment_my_page_day_tv"
+                app:layout_constraintStart_toStartOf="@id/fragment_my_page_day_tv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_day_tv" />
+
+            <ProgressBar
+                android:id="@+id/fragment_my_page_pb"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="70"
+                android:progressBackgroundTint="@color/tab_none_progress"
+                android:progressDrawable="@drawable/circle_progress_bar"
+                android:progressTint="@color/tab_indicator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_remain_goal_tv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="70"
+                android:textColor="@color/tab_indicator"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_my_page_pb"
+                app:layout_constraintEnd_toEndOf="@id/fragment_my_page_pb"
+                app:layout_constraintStart_toStartOf="@+id/fragment_my_page_pb"
+                app:layout_constraintTop_toTopOf="@id/fragment_my_page_pb" />
+
+            <TextView
+                android:id="@+id/fragment_my_page_comparison_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="100dp"
+                android:text="최대 페이스 X 평균 페이스"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_pb" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/chart"
+                android:layout_marginStart="26dp"
+                android:layout_marginEnd="26dp"
+                android:layout_width="match_parent"
+                android:layout_height="205dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_comparison_tv" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
