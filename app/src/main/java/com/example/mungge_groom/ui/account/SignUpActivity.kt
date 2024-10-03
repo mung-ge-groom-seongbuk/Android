@@ -41,14 +41,17 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED){
                 accountViewModel.signUpData.collectLatest {response ->
-                    if(response.message == "회원가입이 완료되었습니다."){
-                        Log.d("메세지","$response")
-                        startActivityWithClear(LoginActivity::class.java)
-                        Toast.makeText(this@SignUpActivity,"회원가입 성공",Toast.LENGTH_SHORT).show()
-                    }
-                    else{
-                        Log.d("메세지","$response")
-                        Toast.makeText(this@SignUpActivity,"회원가입 실패",Toast.LENGTH_SHORT).show()
+                    if (response.message.isNotEmpty()) {
+                        if (response.message == "회원가입이 완료되었습니다.") {
+                            Log.d("메세지", "$response")
+                            startActivityWithClear(LoginActivity::class.java)
+                            Toast.makeText(this@SignUpActivity, "회원가입 성공", Toast.LENGTH_SHORT)
+                                .show()
+                        } else {
+                            Log.d("메세지", "$response")
+                            Toast.makeText(this@SignUpActivity, "회원가입 실패", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
                 }
             }
