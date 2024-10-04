@@ -27,15 +27,11 @@ class Toggle2Fragment : BaseFragment<FragmentToggle2Binding>(R.layout.fragment_t
     private lateinit var mapView: MapView
     private lateinit var googleMap: GoogleMap
 
-    // Register the permissions callback, which handles the user's response to the permission request
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted) {
-            // Permission is granted. Enable location.
             enableMyLocation()
-        } else {
-            // Permission denied. Handle the case accordingly.
         }
     }
 
