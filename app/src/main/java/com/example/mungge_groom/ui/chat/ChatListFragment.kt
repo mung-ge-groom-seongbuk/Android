@@ -1,18 +1,35 @@
 package com.example.mungge_groom.ui.chat
 
+import android.content.Intent
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.navigation.fragment.findNavController
 import com.example.mungge_groom.R
 import com.example.mungge_groom.data.response.ChatListData
 import com.example.mungge_groom.databinding.FragmentChatListBinding
 import com.example.mungge_groom.ui.base.BaseFragment
+import com.example.mungge_groom.ui.listener.onChatRoomClickedListener
 
-class ChatListFragment : BaseFragment<FragmentChatListBinding>(R.layout.fragment_chat_list) {
+class ChatListFragment : BaseFragment<FragmentChatListBinding>(R.layout.fragment_chat_list) , onChatRoomClickedListener {
     private lateinit var chatListAdapter: ChatListAdapter
-
     override fun setLayout() {
         setRecyclerView()
+        onTextChanged()
     }
 
+    private fun onTextChanged(){
+        binding.fragmentChatListEt.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                chatListAdapter.findChatData(binding.fragmentChatListEt.text.toString())
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+    }
 
 
     private fun setRecyclerView() {
@@ -53,9 +70,16 @@ class ChatListFragment : BaseFragment<FragmentChatListBinding>(R.layout.fragment
                 "5"
             ),
         )
-        chatListAdapter = ChatListAdapter()
+        chatListAdapter = ChatListAdapter(this)
         binding.fragmentChatListRv.adapter = chatListAdapter
-        chatListAdapter.submitList(chatList)
+        chatListAdapter.setChatListData(chatList)
+    }
+
+    override fun onClick(name: String) {
+        Intent(requireActivity(),ChatRoomFragment::class.java).apply {
+            putExtra("name",name)
+            startActivity(this)
+        }
     }
 
 }
