@@ -1,5 +1,6 @@
 package com.example.mungge_groom.ui.chat
 
+import androidx.navigation.fragment.findNavController
 import com.example.mungge_groom.R
 import com.example.mungge_groom.data.response.ChatListData
 import com.example.mungge_groom.databinding.FragmentChatListBinding
@@ -11,6 +12,8 @@ class ChatListFragment : BaseFragment<FragmentChatListBinding>(R.layout.fragment
     override fun setLayout() {
         setRecyclerView()
     }
+
+
 
     private fun setRecyclerView() {
         val chatList = listOf(

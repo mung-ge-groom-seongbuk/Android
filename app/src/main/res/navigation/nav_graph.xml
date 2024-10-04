@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_chatListFragment"
             app:destination="@id/chatListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_chatRoomFragment"
+            app:destination="@id/chatRoomFragment" />
     </fragment>
 
     <fragment
@@ -55,4 +58,16 @@
         android:name="com.example.mungge_groom.ui.notification.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/toggle1Fragment"
+        android:name="com.example.mungge_groom.ui.home.Toggle1Fragment"
+        android:label="Toggle1Fragment"
+        tools:layout="@layout/fragment_toggle1"
+        />
+    <fragment
+        android:id="@+id/toggle2Fragment"
+        android:name="com.example.mungge_groom.ui.home.Toggle2Fragment"
+        android:label="Toggle2Fragment"
+        tools:layout="@layout/fragment_toggle2"
+        />
 </navigation>

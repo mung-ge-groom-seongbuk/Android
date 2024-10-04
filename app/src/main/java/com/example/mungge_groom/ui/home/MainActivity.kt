@@ -1,5 +1,7 @@
 package com.example.mungge_groom.ui.home
 
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -10,6 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+    private lateinit var navHostController: NavController
+
     override fun setLayout() {
         setBottomNav()
     }
@@ -17,7 +21,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun setBottomNav() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navHostController = navHostFragment.findNavController()
+        navHostController = navHostFragment.findNavController()
         binding.bottomNavigationView.setupWithNavController(navHostController)
+    }
+    fun setBottomNavSelectedItem(itemId: Int) {
+        binding.bottomNavigationView.selectedItemId = itemId
+    }
+
+    fun setBottomNavMoveItem(itemId: Int, action : Int) {
+        binding.bottomNavigationView.selectedItemId = itemId
+        navHostController.navigate(action)
     }
 }
