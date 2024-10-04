@@ -1,5 +1,5 @@
 package com.example.mungge_groom.ui.listener
 
 interface onClickBottomSheetDialogListener {
-    fun onClick()
+    fun onClick(name : String)
 }
