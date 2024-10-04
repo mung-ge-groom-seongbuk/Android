@@ -2,6 +2,7 @@ package com.example.mungge_groom.ui.home
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
@@ -14,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.mungge_groom.R
 import com.example.mungge_groom.ui.base.BaseFragment
 import com.example.mungge_groom.databinding.FragmentToggle2Binding
+import com.example.mungge_groom.ui.chat.ChatRoomFragment
 import com.example.mungge_groom.ui.listener.onClickBottomSheetDialogListener
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -170,9 +172,13 @@ class Toggle2Fragment : BaseFragment<FragmentToggle2Binding>(R.layout.fragment_t
         mapView.onLowMemory()
     }
 
-    override fun onClick() {
+    override fun onClick(name : String) {
         // 바텀 네비게이션의 선택 상태 변경
         val mainActivity = activity as MainActivity
-        mainActivity.setBottomNavMoveItem(R.id.chatListFragment,R.id.action_chatListFragment_to_chatRoomFragment)
+        mainActivity.setBottomNavSelectedItem(R.id.chatListFragment)
+        Intent(requireActivity(),ChatRoomFragment::class.java).apply {
+            putExtra("name",name)
+            startActivity(this)
+        }
     }
 }

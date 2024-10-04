@@ -1,5 +1,5 @@
 package com.example.mungge_groom.ui.listener
 
-interface onClickBottomSheetDialogListener {
+interface onChatRoomClickedListener {
     fun onClick(name : String)
 }

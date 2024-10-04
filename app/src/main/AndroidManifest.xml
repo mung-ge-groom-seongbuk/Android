@@ -33,6 +33,9 @@
             android:name=".ui.account.SignUpActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.chat.ChatRoomFragment"
+            android:exported="false" />
+        <activity
             android:name=".ui.account.LoginActivity"
             android:exported="true">
             <intent-filter>

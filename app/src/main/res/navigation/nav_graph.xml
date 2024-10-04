@@ -13,26 +13,13 @@
         <action
             android:id="@+id/action_homeFragment_to_chatListFragment"
             app:destination="@id/chatListFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_chatRoomFragment"
-            app:destination="@id/chatRoomFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/chatListFragment"
         android:name="com.example.mungge_groom.ui.chat.ChatListFragment"
         android:label="fragment_chat_list"
-        tools:layout="@layout/fragment_chat_list" >
-        <action
-            android:id="@+id/action_chatListFragment_to_chatRoomFragment"
-            app:destination="@id/chatRoomFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/chatRoomFragment"
-        android:name="com.example.mungge_groom.ui.chat.ChatRoomFragment"
-        android:label="fragment_chat_room"
-        tools:layout="@layout/fragment_chat_room" />
+        tools:layout="@layout/fragment_chat_list" />
 
     <fragment
         android:id="@+id/myPageFragment"
@@ -58,16 +45,4 @@
         android:name="com.example.mungge_groom.ui.notification.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
-    <fragment
-        android:id="@+id/toggle1Fragment"
-        android:name="com.example.mungge_groom.ui.home.Toggle1Fragment"
-        android:label="Toggle1Fragment"
-        tools:layout="@layout/fragment_toggle1"
-        />
-    <fragment
-        android:id="@+id/toggle2Fragment"
-        android:name="com.example.mungge_groom.ui.home.Toggle2Fragment"
-        android:label="Toggle2Fragment"
-        tools:layout="@layout/fragment_toggle2"
-        />
 </navigation>
