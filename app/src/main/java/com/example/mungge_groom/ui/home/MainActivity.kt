@@ -28,8 +28,4 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.bottomNavigationView.selectedItemId = itemId
     }
 
-    fun setBottomNavMoveItem(itemId: Int, action : Int) {
-        binding.bottomNavigationView.selectedItemId = itemId
-        navHostController.navigate(action)
-    }
 }
