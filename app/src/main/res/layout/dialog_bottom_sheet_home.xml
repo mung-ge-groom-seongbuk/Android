@@ -86,6 +86,7 @@
         app:layout_constraintStart_toStartOf="@+id/dialog_bottom_sheet_des_tv" />
 
     <ImageView
+        android:id="@+id/dialog_bottom_sheet_profile_iv"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="20dp"
