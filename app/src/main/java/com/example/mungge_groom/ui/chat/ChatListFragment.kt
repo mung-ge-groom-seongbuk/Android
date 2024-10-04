@@ -3,22 +3,22 @@ package com.example.mungge_groom.ui.chat
 import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.navigation.fragment.findNavController
 import com.example.mungge_groom.R
 import com.example.mungge_groom.data.response.ChatListData
 import com.example.mungge_groom.databinding.FragmentChatListBinding
 import com.example.mungge_groom.ui.base.BaseFragment
 import com.example.mungge_groom.ui.listener.onChatRoomClickedListener
 
-class ChatListFragment : BaseFragment<FragmentChatListBinding>(R.layout.fragment_chat_list) , onChatRoomClickedListener {
+class ChatListFragment : BaseFragment<FragmentChatListBinding>(R.layout.fragment_chat_list),
+    onChatRoomClickedListener {
     private lateinit var chatListAdapter: ChatListAdapter
     override fun setLayout() {
         setRecyclerView()
         onTextChanged()
     }
 
-    private fun onTextChanged(){
-        binding.fragmentChatListEt.addTextChangedListener(object : TextWatcher{
+    private fun onTextChanged() {
+        binding.fragmentChatListEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
@@ -30,7 +30,6 @@ class ChatListFragment : BaseFragment<FragmentChatListBinding>(R.layout.fragment
             }
         })
     }
-
 
     private fun setRecyclerView() {
         val chatList = listOf(
@@ -76,10 +75,9 @@ class ChatListFragment : BaseFragment<FragmentChatListBinding>(R.layout.fragment
     }
 
     override fun onClick(name: String) {
-        Intent(requireActivity(),ChatRoomFragment::class.java).apply {
-            putExtra("name",name)
+        Intent(requireActivity(), ChatRoomFragment::class.java).apply {
+            putExtra("name", name)
             startActivity(this)
         }
     }
-
 }
