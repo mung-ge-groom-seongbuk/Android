@@ -35,7 +35,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tabBackground="@drawable/tab_layout_selector"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/selector_menu"
+            app:tabTextColor="@color/selector_menu"
+            app:tabSelectedTextColor="@color/white"
             app:tabTextAppearance="@style/CustomTabText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
