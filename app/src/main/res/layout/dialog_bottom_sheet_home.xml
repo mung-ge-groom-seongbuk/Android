@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="runningCrewData"
+            type="com.example.mungge_groom.data.model.RunningCrewData" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -25,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="20dp"
-        android:text="%d회"
+        android:text="@{runningCrewData.count + `회`}"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@id/dialog_bottom_sheet_home_bt"
         app:layout_constraintStart_toStartOf="parent" />
@@ -35,11 +40,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="%dkm"
+        android:text="@{runningCrewData.km + `km`}"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@id/dialog_bottom_sheet_home_bt"
-        app:layout_constraintEnd_toStartOf="@id/dialog_bottom_sheet_home_pace"
-        app:layout_constraintStart_toEndOf="@id/dialog_bottom_sheet_home_count" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/dialog_bottom_sheet_home_pace"
@@ -47,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="20dp"
-        android:text="%d분/km"
+        android:text="@{runningCrewData.pace + `분/km`}"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@id/dialog_bottom_sheet_home_bt"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -68,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="멍멍 같이 달리자멍"
+        android:text="@{runningCrewData.description}"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@id/dialog_bottom_sheet_avg_tv"
         app:layout_constraintEnd_toEndOf="@+id/dialog_bottom_sheet_home_bt"
@@ -79,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="강아지"
+        android:text="@{runningCrewData.name}"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/dialog_bottom_sheet_des_tv"
@@ -98,3 +103,4 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
