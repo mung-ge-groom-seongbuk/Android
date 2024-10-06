@@ -22,6 +22,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         val fragmentStateAdapter = FragmentAdapter(requireActivity())
         fragmentStateAdapter.fragments = pageList
         binding.pager.adapter = fragmentStateAdapter
+        binding.pager.isUserInputEnabled = false
 
         val tabTitle = listOf("match", "map")
 
