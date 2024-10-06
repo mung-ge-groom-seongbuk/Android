@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="tab_back">#8CDFFEEA</color>
+    <color name="tab_back_stroke">#8C868686</color>
+
     <color name="white">#FFFFFFFF</color>
-    <color name="gray_medium">#A09CAB</color>
+    <color name="gray_medium">#AFB1B6</color>
     <color name="send_color">#EFF1F5</color>
-    <color name="tab_select">#484E56</color>
+    <color name="tab_select">#9EEAB7</color>
     <color name="tab_indicator">#868686</color>
     <color name="tab_none_indicator">#D5D5D5</color>
     <color name="tab_none_progress">#AFB1B6</color>
