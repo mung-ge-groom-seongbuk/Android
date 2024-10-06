@@ -5,4 +5,5 @@
     <string name="my_page">마이페이지</string>
     <string name="chat">채팅</string>
     <string name="home">매칭 홈</string>
+    <string name="play_chat">채팅하기</string>
 </resources>
