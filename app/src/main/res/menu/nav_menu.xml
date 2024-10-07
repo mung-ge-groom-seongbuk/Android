@@ -2,16 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:title="@string/home"/>
-<!--        android:icon="@drawable/ic_menu_home"-->
+        android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/chatListFragment"
-        android:title="@string/chat"/>
-    <!--        android:icon="@drawable/ic_menu_chat"-->
+        android:icon="@drawable/ic_chat"/>
 
     <item
         android:id="@+id/myPageFragment"
-        android:title="@string/my_page"/>
-<!--        android:icon="@drawable/ic_menu_myPage"-->
+        android:icon="@drawable/ic_mypage"/>
+
 
 </menu>
