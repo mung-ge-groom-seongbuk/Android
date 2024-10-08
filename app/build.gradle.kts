@@ -51,9 +51,6 @@ android {
 dependencies {
     implementation (libs.androidx.work.runtime.ktx)
 
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-
     // navigation
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
@@ -80,9 +77,10 @@ dependencies {
 
     // okHttp
     implementation(libs.okhttp)
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.12.0"))
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
-    implementation ("com.squareup.okhttp3:okhttp-urlconnection:4.12.0")
+    implementation(libs.okhttp.bom)
+    implementation (libs.logging.interceptor)
+    implementation (libs.okhttp.urlconnection)
+    implementation(libs.androidx.datastore.preferences)
 
     // retrofit
     implementation(libs.retrofit)

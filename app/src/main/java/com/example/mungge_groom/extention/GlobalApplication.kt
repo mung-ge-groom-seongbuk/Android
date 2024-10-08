@@ -10,6 +10,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 
 @HiltAndroidApp
 class GlobalApplication : Application() {
@@ -18,6 +19,9 @@ class GlobalApplication : Application() {
         super.onCreate()
         instance = this
     }
+
+    @Inject
+    lateinit var tokenManager: TokenManager
 
     companion object {
         lateinit var instance: GlobalApplication
