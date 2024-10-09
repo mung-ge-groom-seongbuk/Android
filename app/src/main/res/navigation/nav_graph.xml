@@ -43,11 +43,6 @@
             app:destination="@id/settingProfileFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/settingFragment"
-        android:name="com.example.mungge_groom.ui.setting.SettingFragment"
-        android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
 
     <fragment
         android:id="@+id/notificationFragment"
