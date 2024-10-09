@@ -10,12 +10,15 @@ import com.example.mungge_groom.R
 import com.example.mungge_groom.databinding.ActivityMainBinding
 import com.example.mungge_groom.ui.account.AccountViewModel
 import com.example.mungge_groom.ui.base.BaseActivity
+import com.example.mungge_groom.ui.chat.ChatViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private lateinit var navHostController: NavController
     private lateinit var accountViewModel: AccountViewModel
+    private lateinit var chatViewModel: ChatViewModel
+    private lateinit var homeViewModel: HomeViewModel
     override fun setLayout() {
         setBottomNav()
         setViewModel()
@@ -31,5 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
     private fun setViewModel(){
         accountViewModel = ViewModelProvider(this)[AccountViewModel::class.java]
+        chatViewModel = ViewModelProvider(this)[ChatViewModel::class.java]
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
     }
 }
