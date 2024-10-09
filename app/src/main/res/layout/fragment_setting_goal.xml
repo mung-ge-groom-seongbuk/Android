@@ -123,7 +123,6 @@
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/setting_rounded_corner"
                 android:orientation="horizontal"
-
                 android:padding="8dp">
 
 
