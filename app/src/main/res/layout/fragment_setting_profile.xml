@@ -53,7 +53,7 @@
                 android:id="@+id/camera_icon"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_camera"
+
                 android:layout_gravity="bottom|end"
                 android:layout_margin="8dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
@@ -65,7 +65,7 @@
 
 
     <TextView
-        android:id="@+id/setting_goal_date_tv"
+        android:id="@+id/setting_goalDate_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="목표날짜  설정"
@@ -84,7 +84,7 @@
         android:layout_marginBottom="16dp">
 
         <TextView
-            android:id="@+id/setting_finish_date_tv"
+            android:id="@+id/setting_finishDate_tv"
             android:layout_width="256dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -94,7 +94,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/setting_finish_date2_tv"
+            android:id="@+id/setting_finishDate2_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
