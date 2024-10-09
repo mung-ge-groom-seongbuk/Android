@@ -1,5 +1,6 @@
 package com.example.mungge_groom.ui.account
 
+import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -9,6 +10,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.mungge_groom.R
 import com.example.mungge_groom.data.request.SignUpDTO
 import com.example.mungge_groom.databinding.ActivitySignUpBinding
+import com.example.mungge_groom.extention.GlobalApplication
 import com.example.mungge_groom.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -37,6 +39,13 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         }
     }
 
+    private fun saveUser(userId : String) {
+
+        lifecycleScope.launch {
+            GlobalApplication.instance.tokenManager.saveUserId(userId)
+        }
+    }
+
     private fun observeLifeCycle(){
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED){
@@ -44,9 +53,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                     if (response.message.isNotEmpty()) {
                         if (response.message == "회원가입이 완료되었습니다.") {
                             Log.d("메세지", "$response")
-                            startActivityWithClear(LoginActivity::class.java)
-                            Toast.makeText(this@SignUpActivity, "회원가입 성공", Toast.LENGTH_SHORT)
-                                .show()
+                            startActivity(Intent(this@SignUpActivity,StartActivity::class.java))
+                            saveUser(binding.signUpUserEmailEt.text.toString())
                         } else {
                             Log.d("메세지", "$response")
                             Toast.makeText(this@SignUpActivity, "회원가입 실패", Toast.LENGTH_SHORT)

@@ -13,5 +13,4 @@ import retrofit2.http.Part
 
 interface MypageApi {
 
-
 }

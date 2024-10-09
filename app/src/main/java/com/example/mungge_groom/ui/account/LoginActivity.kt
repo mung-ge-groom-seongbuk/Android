@@ -1,5 +1,6 @@
 package com.example.mungge_groom.ui.account
 
+import android.content.Intent
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
@@ -29,6 +30,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
     }
 
     private fun setOnClickListener() {
+
+        binding.loginKakaoLoginBt.setOnClickListener{
+            val intent = Intent(this@LoginActivity,StartActivity::class.java)
+            startActivity(intent)
+        }
         binding.loginLoginBt.setOnClickListener {
             if(!token.isNullOrEmpty()) {
                 accountViewModel.postLogIn(
