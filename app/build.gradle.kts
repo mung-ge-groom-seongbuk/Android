@@ -61,6 +61,7 @@ dependencies {
     implementation (libs.play.services.location)
     implementation(libs.glide)
     implementation(libs.firebase.messaging.ktx)
+    implementation(libs.firebase.messaging)
     kapt(libs.compiler.v4151)
 
     // Hilt
