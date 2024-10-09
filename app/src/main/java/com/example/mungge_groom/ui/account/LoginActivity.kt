@@ -8,29 +8,38 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.mungge_groom.R
 import com.example.mungge_groom.data.request.LogInDTO
 import com.example.mungge_groom.databinding.ActivityLoginBinding
+import com.example.mungge_groom.extention.GlobalApplication
 import com.example.mungge_groom.ui.base.BaseActivity
 import com.example.mungge_groom.ui.home.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
-
+    var token : String? = ""
     private val accountViewModel: AccountViewModel by viewModels()
     override fun setLayout() {
         setOnClickListener()
         observeLifeCycle()
+        lifecycleScope.launch {
+            token = GlobalApplication.instance.tokenManager.getFireBaseTokenIdId().first()
+        }
     }
 
     private fun setOnClickListener() {
         binding.loginLoginBt.setOnClickListener {
-            accountViewModel.postLogIn(
-                LogInDTO(
-                    binding.loginUsernameInputEt.text.toString(),
-                    binding.loginPasswordInputEt.text.toString()
+            if(!token.isNullOrEmpty()) {
+                accountViewModel.postLogIn(
+                    LogInDTO(
+                        binding.loginUsernameInputEt.text.toString(),
+                        binding.loginPasswordInputEt.text.toString(),
+                        token.toString()
+                    )
                 )
-            )
+                Log.d("토큰s","$token")
+            }
         }
         binding.loginSignupTv.setOnClickListener {
             startNextActivity(SignUpActivity::class.java)

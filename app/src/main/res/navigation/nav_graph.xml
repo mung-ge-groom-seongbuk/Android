@@ -26,23 +26,40 @@
         android:name="com.example.mungge_groom.ui.mypage.MyPageFragment"
         android:label="fragment_my_page"
         tools:layout="@layout/fragment_my_page" >
-        <action
-            android:id="@+id/action_myPageFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
+
         <action
             android:id="@+id/action_myPageFragment_to_notificationFragment"
             app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_settingAchieveFragment"
+            app:destination="@id/settingAchieveFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_settingAccountFragment"
+            app:destination="@id/settingAccountFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_settingProfileFragment"
+            app:destination="@id/settingProfileFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/settingFragment"
-        android:name="com.example.mungge_groom.ui.setting.SettingFragment"
-        android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
 
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.example.mungge_groom.ui.notification.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/settingAchieveFragment"
+        android:name="com.example.mungge_groom.ui.setting.SettingAchieveFragment"
+        android:label="SettingAchieveFragment"
+        tools:layout="@layout/fragment_setting_goal" />
+    <fragment
+        android:id="@+id/settingAccountFragment"
+        android:name="com.example.mungge_groom.ui.setting.SettingAccountFragment"
+        android:label="SettingAccountFragment"
+        tools:layout="@layout/fragment_setting_account" />
+    <fragment
+        android:id="@+id/settingProfileFragment"
+        android:name="com.example.mungge_groom.ui.setting.SettingProfileFragment"
+        android:label="SettingProfileFragment"
+        tools:layout="@layout/fragment_setting_profile" />
 </navigation>
