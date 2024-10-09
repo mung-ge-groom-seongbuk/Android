@@ -7,19 +7,18 @@
     android:background="#FFFFFF">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#DDE8D9"
-        android:padding="16dp"
-        android:gravity="center">
+        android:background="#9EEAB7"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
 
 
         <TextView
             android:id="@+id/setting_goal_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:text="목표 설정"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -30,7 +29,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
 
-        android:padding="16dp">
+        android:padding="32dp">
         <TextView
             android:id="@+id/setting_goal_date_tv"
             android:layout_width="wrap_content"
@@ -44,15 +43,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/setting_rounded_corner"
             android:orientation="horizontal"
-            android:background="#F7F7FA"
             android:padding="8dp"
-            android:elevation="2dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="24dp">
 
             <TextView
                 android:id="@+id/setting_finish_date_tv"
-                android:layout_width="256dp"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
@@ -86,9 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="#F7F7FA"
+            android:background="@drawable/setting_rounded_corner"
             android:padding="8dp"
-            android:elevation="2dp"
             android:layout_marginBottom="24dp">
 
             <TextView
@@ -106,8 +103,8 @@
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:scrollbarSize="3dp"
-
-             />
+                android:background="@drawable/shape_with_arrow"
+                android:paddingEnd="8dp"/>
 
         </LinearLayout>
 
@@ -123,44 +120,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#F7F7FA"
+            android:background="@drawable/setting_rounded_corner"
         android:padding="8dp"
-        android:elevation="2dp"
+
         android:layout_marginBottom="24dp">
 
 
+            <TextView
+                android:id="@+id/setting_goal_distance_tv"
+                android:layout_width="172dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:padding="8dp"
+                android:text="달성 목표"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/setting_goal_distance_tv"
-                    android:layout_width="256dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:padding="8dp"
-                    android:text="달성 목표"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/setting_goal_distance2_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-
-                    android:backgroundTint="#E0E0E0"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:gravity="end
-"
-                    android:text="km"
-                    android:textColor="#000000" />
-
-
-
-
+            <TextView
+                android:id="@+id/setting_goal_distance2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="km"
+                android:background="@drawable/shape_fill_white_square_rounded_5dp"
+                android:textColor="#000000" />
         </LinearLayout>
-
-
     </LinearLayout>
-
-
 </LinearLayout>

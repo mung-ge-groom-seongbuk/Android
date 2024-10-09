@@ -7,12 +7,12 @@
     android:background="#FFFFFF">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#DDE8D9"
-        android:padding="16dp"
-        android:gravity="center">
+        android:background="#9EEAB7"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
 
 
         <TextView
@@ -30,7 +30,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
 
-        android:padding="16dp">
+        android:padding="32dp">
         <TextView
             android:id="@+id/setting_account_id_tv"
             android:layout_width="wrap_content"
@@ -44,11 +44,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/setting_rounded_corner"
             android:orientation="horizontal"
-            android:background="#F7F7FA"
-            android:padding="8dp"
-            android:elevation="2dp"
-            android:layout_marginBottom="16dp">
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/setting_account_id2_tv"
@@ -64,12 +63,12 @@
                 android:id="@+id/setting_account_id_bt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="변경"
-                android:textColor="#000000"
-                android:backgroundTint="#E0E0E0"
                 android:layout_gravity="end"
+                android:backgroundTint="#E0E0E0"
                 android:paddingLeft="16dp"
-                android:paddingRight="16dp"/>
+                android:paddingRight="16dp"
+                android:text="변경"
+                android:textColor="#000000" />
         </LinearLayout>
 
         <TextView
@@ -84,11 +83,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/setting_rounded_corner"
             android:orientation="horizontal"
-            android:background="#F7F7FA"
-            android:padding="8dp"
-            android:elevation="2dp"
-            android:layout_marginBottom="24dp">
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/setting_account_pw2_tv"
@@ -104,12 +102,12 @@
                 android:id="@+id/setting_account_pw_bt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="변경"
-                android:textColor="#000000"
-                android:backgroundTint="#E0E0E0"
                 android:layout_gravity="end"
+                android:backgroundTint="#E0E0E0"
                 android:paddingLeft="16dp"
-                android:paddingRight="16dp"/>
+                android:paddingRight="16dp"
+                android:text="변경"
+                android:textColor="#000000" />
         </LinearLayout>
 
         <TextView
@@ -123,15 +121,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/setting_rounded_corner"
             android:orientation="vertical"
-            android:background="#F5F5F5"
             android:padding="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/setting_account_notify1_tv"
@@ -144,7 +142,7 @@
                 <Switch
                     android:id="@+id/setting_account_noify1_sw"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
@@ -163,7 +161,7 @@
                 <Switch
                     android:id="@+id/setting_account_noify2_sw"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>
 

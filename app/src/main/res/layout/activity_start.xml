@@ -1,93 +1,102 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9EEAB7"
     android:orientation="vertical"
-    android:background="#DDE8D9"
-    android:padding="16dp">
+    android:padding="32dp">
 
     <TextView
-        android:id="@+id/title_text"
+        android:id="@+id/title_text_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="사진과 이름을 등록해주세요."
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:layout_marginTop="32dp"
+        android:text="사진과 이름을"
         android:textColor="#333333"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="32dp"/>
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/title_text2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="7dp"
+        android:text="등록해주세요."
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <!-- 프로필 이미지 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="32dp">
+        android:layout_marginTop="32dp"
+        android:gravity="center">
 
-        <ImageView
-            android:id="@+id/profile_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:background="@drawable/circle_background"
-            android:scaleType="centerInside" />
-            <!-- android:src="@drawable/ic_profile_placeholder" -->
+        <!-- android:src="@drawable/ic_profile_placeholder" -->
 
 
         <!-- 카메라 아이콘 -->
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:background="@drawable/circle_background"
+            android:scaleType="centerInside" />
+
         <ImageButton
             android:id="@+id/camera_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/circle_background"
             android:layout_marginStart="-40dp"
-            android:layout_marginTop="80dp"
-            android:contentDescription="사진 변경"/>
-        <!-- android:src="@drawable/ic_camera"-->
+            android:layout_marginTop="60dp"
+            android:background="@drawable/circle_background"
+        android:src="@drawable/baseline_camera_alt_24" />
 
-</LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="32dp"
-        android:gravity="center_vertical">
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/name_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이름 :"
+            android:layout_marginBottom="10dp"
             android:textColor="#333333"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/name_input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:background="@null"
             android:hint=""
             android:inputType="textPersonName"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:textColor="#333333"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#333333"/>
+        android:background="#333333" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="24dp"
-        android:gravity="center_vertical">
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/intro_label"
@@ -95,32 +104,33 @@
             android:layout_height="wrap_content"
             android:text="한줄소개 :"
             android:textColor="#333333"
-            android:textSize="16sp"/>
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/intro_input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:background="@null"
             android:hint=""
             android:inputType="text"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:textColor="#333333"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#333333"/>
+        android:background="#333333" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
         android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="100dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
