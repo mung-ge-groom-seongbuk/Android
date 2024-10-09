@@ -8,6 +8,10 @@
         <item name="android:textSize">16sp</item> <!-- 원하는 크기 -->
         <item name="android:textStyle">bold</item> <!-- 원하는 스타일 (italic, normal 등) -->
     </style>
+    <style name="CustomTabBarText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item> <!-- 원하는 크기 -->
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="fab_3_rounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>

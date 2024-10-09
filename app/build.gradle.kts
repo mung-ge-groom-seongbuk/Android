@@ -77,7 +77,7 @@ dependencies {
 
     // okHttp
     implementation(libs.okhttp)
-    implementation(libs.okhttp.bom)
+    implementation(platform(libs.okhttp.bom))
     implementation (libs.logging.interceptor)
     implementation (libs.okhttp.urlconnection)
     implementation(libs.androidx.datastore.preferences)

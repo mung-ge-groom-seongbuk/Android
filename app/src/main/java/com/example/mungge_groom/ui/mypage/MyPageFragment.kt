@@ -80,8 +80,11 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     }
 
     private fun setOnClickListener() {
-        binding.fragmentMyPageSetting.setOnClickListener {
+        binding.fragmentMyPageNotify.setOnClickListener{
+            findNavController().navigate(R.id.action_myPageFragment_to_notificationFragment)
+        }
 
+        binding.fragmentMyPageSetting.setOnClickListener {
             // 설정된 action을 통해 SettingFragment로 이동
             findNavController().navigate(R.id.action_myPageFragment_to_settingFragment)
         }
