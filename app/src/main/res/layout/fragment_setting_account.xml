@@ -6,16 +6,13 @@
     android:orientation="vertical"
     android:background="#FFFFFF">
 
-    <!-- 상단 타이틀과 뒤로 가기 버튼 -->
-
-    <!-- 아이디 섹션 -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#DDE8D9"
         android:padding="16dp"
-        android:gravity="center"> >
+        android:gravity="center">
 
 
         <TextView
@@ -54,7 +51,7 @@
             android:layout_marginBottom="16dp">
 
             <TextView
-                android:id="@+id/setting_account_id_et"
+                android:id="@+id/setting_account_id2_tv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -75,7 +72,6 @@
                 android:paddingRight="16dp"/>
         </LinearLayout>
 
-        <!-- 비밀번호 섹션 -->
         <TextView
             android:id="@+id/setting_account_pw_tv"
             android:layout_width="wrap_content"
@@ -95,7 +91,7 @@
             android:layout_marginBottom="24dp">
 
             <TextView
-                android:id="@+id/setting_account_pw_et"
+                android:id="@+id/setting_account_pw2_tv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -116,7 +112,6 @@
                 android:paddingRight="16dp"/>
         </LinearLayout>
 
-        <!-- 세부 설정 섹션 -->
         <TextView
             android:id="@+id/setting_account_detail_tv"
             android:layout_width="wrap_content"
@@ -132,7 +127,6 @@
             android:background="#F5F5F5"
             android:padding="16dp">
 
-            <!-- 매칭 알림 스위치 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -140,7 +134,7 @@
                 android:layout_marginBottom="16dp">
 
                 <TextView
-                    android:id="@+id/setting_account_noify1_tv"
+                    android:id="@+id/setting_account_notify1_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -153,7 +147,6 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
-            <!-- 채팅 알림 스위치 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
