@@ -31,8 +31,18 @@ class TokenManager @Inject constructor(
         it[USER_ID]
     }
 
+    suspend fun saveFireBaseTokenId(userId: String) {
+        dataStore.edit {
+            it[FIREBASE_TOKEN] = userId
+        }
+    }
+
+    fun getFireBaseTokenIdId(): Flow<String?> = dataStore.data.map {
+        it[FIREBASE_TOKEN]
+    }
     companion object {
         private val USER_ID = stringPreferencesKey("user_id")
+        private val FIREBASE_TOKEN = stringPreferencesKey("firebase_token")
     }
 
 }

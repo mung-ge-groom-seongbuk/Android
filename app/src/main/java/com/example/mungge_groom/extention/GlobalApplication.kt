@@ -14,15 +14,19 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.HiltAndroidApp
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltAndroidApp
 class GlobalApplication : Application() {
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate() {
         super.onCreate()
         instance = this
-
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
@@ -36,6 +40,10 @@ class GlobalApplication : Application() {
             // 토큰 로그와 토스트 메시지
             val msg = token.toString()
             Log.d("토큰", msg)
+            GlobalScope.launch(Dispatchers.IO) {
+                tokenManager.saveFireBaseTokenId(msg)
+            }
+
             Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
         })
     }

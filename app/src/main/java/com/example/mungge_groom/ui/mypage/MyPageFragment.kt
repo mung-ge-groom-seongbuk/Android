@@ -2,11 +2,13 @@ package com.example.mungge_groom.ui.mypage
 
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.mungge_groom.R
 import com.example.mungge_groom.data.model.PaceCheckDate
 import com.example.mungge_groom.databinding.FragmentMyPageBinding
 import com.example.mungge_groom.extention.GlobalApplication
+import com.example.mungge_groom.ui.account.AccountViewModel
 import com.example.mungge_groom.ui.base.BaseFragment
 import com.example.mungge_groom.ui.base.FragmentAdapter
 import com.example.mungge_groom.ui.home.PaceCheckFragment
@@ -21,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
-
+    private val accountViewModel : AccountViewModel by activityViewModels()
     override fun setLayout() {
         setTabLayout()
         setOnClickListener()
@@ -91,18 +93,11 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
             findNavController().navigate(R.id.action_myPageFragment_to_settingAccountFragment)
         }
 
-
         binding.fragmentMyPageNotify.setOnClickListener{
             findNavController().navigate(R.id.action_myPageFragment_to_notificationFragment)
         }
 
-        binding.fragmentMyPageSetting.setOnClickListener {
-            // 설정된 action을 통해 SettingFragment로 이동
-            findNavController().navigate(R.id.action_myPageFragment_to_settingFragment)
-        }
     }
-
-
 
     private fun setupBarChart(view: View, chartId: Int, entries: ArrayList<BarEntry>, showGrid: Boolean, labelCount: Int, barWidth: Float) {
         val barChart = view.findViewById<BarChart>(chartId)
