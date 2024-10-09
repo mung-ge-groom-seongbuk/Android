@@ -1,147 +1,151 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#9EEAB7"
-    android:orientation="vertical"
-    android:padding="32dp">
+<layout>
 
-    <TextView
-        android:id="@+id/title_text_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="32dp"
-        android:text="사진과 이름을"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/title_text2_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="7dp"
-        android:text="등록해주세요."
-        android:textColor="#333333"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <!-- 프로필 이미지 -->
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center">
-
-        <!-- android:src="@drawable/ic_profile_placeholder" -->
-
-
-        <!-- 카메라 아이콘 -->
-        <ImageView
-            android:id="@+id/profile_image"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:background="@drawable/circle_background"
-            android:scaleType="centerInside" />
-
-        <ImageButton
-            android:id="@+id/camera_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="-40dp"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/circle_background"
-        android:src="@drawable/baseline_camera_alt_24" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="#9EEAB7"
+        android:orientation="vertical"
+        android:padding="32dp">
 
         <TextView
-            android:id="@+id/name_label"
+            android:id="@+id/title_text_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이름 :"
-            android:layout_marginBottom="10dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="32dp"
+            android:text="사진과 이름을"
             android:textColor="#333333"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/name_input"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:hint=""
-            android:inputType="textPersonName"
-            android:textColor="#333333"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#333333" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/intro_label"
+            android:id="@+id/title_text2_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="한줄소개 :"
+            android:layout_gravity="left"
+            android:layout_marginTop="7dp"
+            android:text="등록해주세요."
             android:textColor="#333333"
-            android:layout_marginBottom="10dp"
-            android:textSize="16sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/intro_input"
-            android:layout_width="0dp"
+        <!-- 프로필 이미지 -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:hint=""
-            android:inputType="text"
-            android:textColor="#333333"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:layout_marginTop="32dp"
+            android:gravity="center">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#333333" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="100dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            <!-- android:src="@drawable/ic_profile_placeholder" -->
 
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="20dp"
+            <!-- 카메라 아이콘 -->
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:background="@drawable/circle_background"
+                android:scaleType="centerInside" />
+
+            <ImageButton
+                android:id="@+id/camera_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-40dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/circle_background"
+                android:src="@drawable/baseline_camera_alt_24" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#7AB28D"
-            android:text="Button" />
+            android:layout_marginTop="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="이름 :"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/name_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint=""
+                android:inputType="textPersonName"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#333333" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/intro_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="한줄소개 :"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/intro_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint=""
+                android:inputType="text"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#333333" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="100dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#7AB28D"
+                android:text="Button" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</layout>
