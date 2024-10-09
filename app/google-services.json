@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "531533617481",
+    "project_id": "runningmate-59d30",
+    "storage_bucket": "runningmate-59d30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531533617481:android:6ad153fe11bee23d2c6298",
+        "android_client_info": {
+          "package_name": "com.example.mungge_groom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIK4ptu2DZ02ZNrKb1WziF6P3rz9Emryk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

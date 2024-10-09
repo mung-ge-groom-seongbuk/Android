@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -59,6 +60,7 @@ dependencies {
     implementation (libs.play.services.maps)
     implementation (libs.play.services.location)
     implementation(libs.glide)
+    implementation(libs.firebase.messaging.ktx)
     kapt(libs.compiler.v4151)
 
     // Hilt
@@ -81,7 +83,8 @@ dependencies {
     implementation (libs.logging.interceptor)
     implementation (libs.okhttp.urlconnection)
     implementation(libs.androidx.datastore.preferences)
-
+    implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
+    implementation("com.google.firebase:firebase-analytics")
     // retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)

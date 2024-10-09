@@ -3,12 +3,16 @@ package com.example.mungge_groom.extention
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import android.widget.ImageView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
@@ -18,6 +22,22 @@ class GlobalApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("토큰", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // 새로운 FCM 등록 토큰 가져오기
+            val token = task.result
+
+            // 토큰 로그와 토스트 메시지
+            val msg = token.toString()
+            Log.d("토큰", msg)
+            Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
+        })
     }
 
     @Inject

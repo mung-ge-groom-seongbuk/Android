@@ -80,6 +80,18 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     }
 
     private fun setOnClickListener() {
+
+        binding.fragmentMyPageSetProfileTv.setOnClickListener{
+            //findNavController().navigate(R.id.)
+        }
+        binding.fragmentMyPageSetAchieveTv.setOnClickListener{
+            //findNavController().
+        }
+        binding.fragmentMyPageSetAccountTv.setOnClickListener{
+            //findNavController().
+        }
+
+
         binding.fragmentMyPageNotify.setOnClickListener{
             findNavController().navigate(R.id.action_myPageFragment_to_notificationFragment)
         }
