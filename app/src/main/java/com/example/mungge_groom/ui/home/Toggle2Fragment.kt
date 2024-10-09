@@ -182,11 +182,10 @@ class Toggle2Fragment : BaseFragment<FragmentToggle2Binding>(R.layout.fragment_t
         val permissionsToRequest = requiredPermissions.filter {
             ContextCompat.checkSelfPermission(requireContext(), it) != PackageManager.PERMISSION_GRANTED
         }
-
         if (permissionsToRequest.isEmpty()) {
             enableMyLocation()
         } else {
-            requestPermissionLauncher.launch(permissionsToRequest.toTypedArray())
+            requestPermissions()
         }
     }
 

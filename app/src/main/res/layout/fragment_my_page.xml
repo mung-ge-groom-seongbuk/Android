@@ -5,12 +5,14 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.mypage.MyPageFragment">
+            tools:context=".ui.mypage.MyPageFragment"
+            >
 
             <ImageView
                 android:id="@+id/fragment_my_page_setting"
@@ -174,16 +176,137 @@
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/chart"
-                android:layout_marginStart="26dp"
-                android:layout_marginEnd="26dp"
                 android:layout_width="match_parent"
                 android:layout_height="205dp"
+                android:layout_marginStart="26dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginEnd="26dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fragment_my_page_comparison_tv" />
 
+            <TextView
+                android:id="@+id/fragment_my_page_set_profile_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="프로필 설정"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="@id/chart"
+                app:layout_constraintTop_toBottomOf="@id/chart" />
+
+            <ImageView
+                android:id="@+id/fragment_my_page_set_profile_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/fragment_my_page_set_profile_tv" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/profile_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_set_profile_iv" />
+
+            <TextView
+                android:id="@+id/fragment_my_page_set_account_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="계정 설정"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="@id/chart"
+                app:layout_constraintTop_toBottomOf="@id/profile_divider" />
+
+            <ImageView
+                android:id="@+id/fragment_my_page_set_account_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/fragment_my_page_set_account_tv" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/account_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_set_account_iv" />
+
+            <TextView
+                android:id="@+id/fragment_my_page_set_achieve_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="목표 설정"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="@id/chart"
+                app:layout_constraintTop_toBottomOf="@id/account_divider" />
+
+            <ImageView
+                android:id="@+id/fragment_my_page_set_achieve_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/fragment_my_page_set_achieve_tv" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/achieve_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_my_page_set_achieve_iv" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/appCompatButton2"
+                android:layout_width="65dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginBottom="55dp"
+
+                android:background="@drawable/shape_fill_red_square_rounded_7_5dp"
+                android:text="회원 탈퇴"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/fragment_my_page_set_achieve_tv"
+                app:layout_constraintTop_toBottomOf="@id/achieve_divider" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="65dp"
+                android:layout_height="30dp"
+                android:background="@drawable/shape_fill_d9d9d9_square_rounded_7_5dp"
+                android:text="로그아웃"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/appCompatButton2"
+                app:layout_constraintEnd_toEndOf="@id/fragment_my_page_set_achieve_iv"
+                app:layout_constraintTop_toTopOf="@+id/appCompatButton2" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
 </layout>

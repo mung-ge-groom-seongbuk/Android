@@ -1,4 +1,4 @@
-package com.example.mungge_groom.data.source
+package com.example.mungge_groom.data.source.account
 
 import android.util.Log
 import com.example.mungge_groom.data.remote.AccountApi
@@ -8,6 +8,8 @@ import com.example.mungge_groom.ui.base.BaseResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import javax.inject.Inject
 
 class AccountApiDataSource @Inject constructor(
@@ -27,6 +29,13 @@ class AccountApiDataSource @Inject constructor(
         emit(result)
     }.catch {
         Log.e("Post LogIn Failure", it.message.toString())
+    }
+
+    fun postUpdateProfile(profile_picture : MultipartBody.Part, intro : RequestBody, nickname: RequestBody ,email : RequestBody) : Flow<BaseResponse<String>> = flow {
+        val result = accountApi.postUpdateProfile(profile_picture,intro,nickname,email)
+        emit(result)
+    }.catch {
+        Log.e("Post Update Profile Failure", it.message.toString())
     }
 
 }
