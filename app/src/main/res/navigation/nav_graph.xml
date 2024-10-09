@@ -32,6 +32,15 @@
         <action
             android:id="@+id/action_myPageFragment_to_notificationFragment"
             app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_settingAchieveFragment"
+            app:destination="@id/settingAchieveFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_settingAccountFragment"
+            app:destination="@id/settingAccountFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_settingProfileFragment"
+            app:destination="@id/settingProfileFragment" />
     </fragment>
 
     <fragment
@@ -45,4 +54,19 @@
         android:name="com.example.mungge_groom.ui.notification.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/settingAchieveFragment"
+        android:name="com.example.mungge_groom.ui.setting.SettingAchieveFragment"
+        android:label="SettingAchieveFragment"
+        tools:layout="@layout/fragment_setting_goal" />
+    <fragment
+        android:id="@+id/settingAccountFragment"
+        android:name="com.example.mungge_groom.ui.setting.SettingAccountFragment"
+        android:label="SettingAccountFragment"
+        tools:layout="@layout/fragment_setting_account" />
+    <fragment
+        android:id="@+id/settingProfileFragment"
+        android:name="com.example.mungge_groom.ui.setting.SettingProfileFragment"
+        android:label="SettingProfileFragment"
+        tools:layout="@layout/fragment_setting_profile" />
 </navigation>

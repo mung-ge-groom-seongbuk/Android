@@ -82,13 +82,13 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     private fun setOnClickListener() {
 
         binding.fragmentMyPageSetProfileTv.setOnClickListener{
-            //findNavController().navigate(R.id.)
+            findNavController().navigate(R.id.action_myPageFragment_to_settingProfileFragment)
         }
         binding.fragmentMyPageSetAchieveTv.setOnClickListener{
-            //findNavController().
+            findNavController().navigate(R.id.action_myPageFragment_to_settingAchieveFragment)
         }
         binding.fragmentMyPageSetAccountTv.setOnClickListener{
-            //findNavController().
+            findNavController().navigate(R.id.action_myPageFragment_to_settingAccountFragment)
         }
 
 
