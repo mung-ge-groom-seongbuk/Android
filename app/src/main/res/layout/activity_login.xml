@@ -12,12 +12,12 @@
         tools:context=".ui.account.LoginActivity">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="129dp"
+            android:layout_height="91dp"
             android:layout_gravity="center"
-            android:layout_marginTop="47dp"
-            android:layout_marginBottom="40dp"
-            android:src="@drawable/ic_logo" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/our_logo" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spinner에 표시할 데이터 배열 -->
+    <string-array name="goal_options">
+        <item>거리</item>
+        <item>칼로리소모</item>
+    </string-array>
+</resources>
+
+
+
