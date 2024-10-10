@@ -1,9 +1,9 @@
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#9EEAB7"
+        android:background="#CC33CC9E"
         android:orientation="vertical"
         android:padding="32dp">
 
