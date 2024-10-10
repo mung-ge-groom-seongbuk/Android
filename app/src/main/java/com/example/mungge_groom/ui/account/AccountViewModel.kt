@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.mungge_groom.data.repository.AccountRepository
 import com.example.mungge_groom.data.request.LogInDTO
 import com.example.mungge_groom.data.request.SignUpDTO
+import com.example.mungge_groom.data.response.LoginResponse
 import com.example.mungge_groom.ui.base.BaseResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,8 +21,8 @@ class AccountViewModel @Inject constructor(
     private val accountRepository: AccountRepository
 ) : ViewModel() {
 
-    private val _logInData = MutableStateFlow(BaseResponse<String>())
-    val logInData: StateFlow<BaseResponse<String>> = _logInData
+    private val _logInData = MutableStateFlow(LoginResponse())
+    val logInData: StateFlow<LoginResponse> = _logInData
 
     private val _signUpData = MutableStateFlow(BaseResponse<String>())
     val signUpData: StateFlow<BaseResponse<String>> = _signUpData
@@ -69,4 +70,5 @@ class AccountViewModel @Inject constructor(
             }
         }
     }
+
 }

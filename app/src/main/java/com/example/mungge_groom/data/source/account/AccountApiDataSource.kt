@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.mungge_groom.data.remote.AccountApi
 import com.example.mungge_groom.data.request.LogInDTO
 import com.example.mungge_groom.data.request.SignUpDTO
+import com.example.mungge_groom.data.response.LoginResponse
 import com.example.mungge_groom.ui.base.BaseResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -16,7 +17,7 @@ class AccountApiDataSource @Inject constructor(
     private val accountApi: AccountApi
 ) {
     //POST 로그인
-    fun postLogIn(logInDTO: LogInDTO): Flow<BaseResponse<String>> = flow {
+    fun postLogIn(logInDTO: LogInDTO): Flow<LoginResponse> = flow {
         val result = accountApi.postLogIn(logInDTO)
         emit(result)
     }.catch {
