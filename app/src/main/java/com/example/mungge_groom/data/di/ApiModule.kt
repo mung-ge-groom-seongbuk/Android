@@ -1,6 +1,9 @@
 package com.example.mungge_groom.data.di
 
 import com.example.mungge_groom.data.remote.AccountApi
+import com.example.mungge_groom.data.remote.ChatApi
+import com.example.mungge_groom.data.remote.HomeApi
+import com.example.mungge_groom.data.remote.MypageApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,4 +19,23 @@ object ApiModule {
     fun provideAccountApi(
         @NetworkModule.MainRetrofit retrofit: Retrofit
     ) : AccountApi = retrofit.create(AccountApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideChatApi(
+        @NetworkModule.MainRetrofit retrofit: Retrofit
+    ) : ChatApi = retrofit.create(ChatApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideHomeApi(
+        @NetworkModule.MainRetrofit retrofit: Retrofit
+    ) : HomeApi = retrofit.create(HomeApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideMypageApi(
+        @NetworkModule.MainRetrofit retrofit: Retrofit
+    ) : MypageApi = retrofit.create(MypageApi::class.java)
+
 }
