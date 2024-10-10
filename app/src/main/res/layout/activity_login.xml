@@ -6,14 +6,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#CC9EEAB7"
+        android:background="#CC33CC9E"
         android:orientation="vertical"
         android:padding="20dp"
         tools:context=".ui.account.LoginActivity">
 
         <ImageView
-            android:layout_width="129dp"
-            android:layout_height="91dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
@@ -22,7 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_fill_back_white_square_rounded_35dp_with_border"
+            android:background="@drawable/shape_fill_white_square_rounded_35dp"
             android:orientation="vertical"
             android:paddingTop="70dp"
             android:paddingBottom="55dp">
@@ -124,10 +124,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="72dp"
-            android:layout_marginEnd="72dp"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="72dp">
 
             <android.widget.TextView
                 android:id="@+id/login_register_prompt_tv"

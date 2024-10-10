@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#CC9EEAB7"
+        android:background="#CC33CC9E"
         android:orientation="vertical"
         android:padding="20dp"
         tools:context=".ui.account.LoginActivity">
@@ -16,14 +16,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="47dp"
-            android:layout_marginBottom="40dp"
-            android:src="@drawable/ic_logo" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/our_logo" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_fill_back_white_square_rounded_35dp_with_border"
+            android:background="@drawable/shape_fill_white_square_rounded_35dp"
             android:orientation="vertical"
             android:paddingTop="70dp"
             android:paddingBottom="73dp">
@@ -36,17 +36,17 @@
                 android:layout_marginStart="23dp"
                 android:layout_marginEnd="23dp"
                 android:layout_marginBottom="28dp"
-                android:inputType="textEmailAddress"
                 android:background="@drawable/shape_fill_f2f2f7_square_rounded_30dp_with_border"
                 android:drawableLeft="@drawable/ic_name"
                 android:drawablePadding="10dp"
                 android:hint="Full Name"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
                 android:paddingStart="14dp"
                 android:paddingTop="17dp"
                 android:paddingBottom="17dp"
                 android:textColor="#AFB1B6"
-                android:textSize="12dp"
-                android:padding="12dp" />
+                android:textSize="12dp" />
 
             <android.widget.EditText
                 android:id="@+id/sign_up_user_email_et"
@@ -55,17 +55,17 @@
                 android:layout_marginStart="23dp"
                 android:layout_marginEnd="23dp"
                 android:layout_marginBottom="28dp"
-                android:inputType="textEmailAddress"
                 android:background="@drawable/shape_fill_f2f2f7_square_rounded_30dp_with_border"
                 android:drawableLeft="@drawable/ic_id"
                 android:drawablePadding="10dp"
                 android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
                 android:paddingStart="14dp"
                 android:paddingTop="17dp"
                 android:paddingBottom="17dp"
                 android:textColor="#AFB1B6"
                 android:textSize="12dp"
-                android:padding="12dp"
 
                 />
 
@@ -79,34 +79,33 @@
                 android:background="@drawable/shape_fill_f2f2f7_square_rounded_30dp_with_border"
                 android:drawableLeft="@drawable/ic_phone"
                 android:drawablePadding="10dp"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:padding="12dp"
                 android:paddingStart="14dp"
                 android:paddingTop="17dp"
                 android:paddingBottom="17dp"
                 android:textColor="#AFB1B6"
-                android:textSize="12dp"
-                android:padding="12dp"
-                android:hint="Phone Number"
-                android:inputType="phone"
-                 />
+                android:textSize="12dp" />
 
             <android.widget.EditText
                 android:id="@+id/sign_up_password_et"
-                android:layout_marginStart="23dp"
-                android:layout_marginEnd="23dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginEnd="23dp"
                 android:layout_marginBottom="28dp"
                 android:background="@drawable/shape_fill_f2f2f7_square_rounded_30dp_with_border"
                 android:drawableLeft="@drawable/ic_pw"
                 android:drawablePadding="10dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
                 android:paddingStart="14dp"
                 android:paddingTop="17dp"
                 android:paddingBottom="17dp"
                 android:textColor="#AFB1B6"
-                android:textSize="12dp"
-                android:padding="12dp"
-                android:hint="Password"
-                android:inputType="textPassword"/>
+                android:textSize="12dp" />
 
             <android.widget.Button
                 android:id="@+id/sign_up_sign_up_bt"
@@ -115,15 +114,16 @@
                 android:layout_gravity="center"
                 android:background="@drawable/shape_fill_7ab28d_square_rounded_30dp"
                 android:text="회원가입"
-                android:textColor="#ffffff"  />
+                android:textColor="#ffffff" />
 
         </LinearLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="72dp"
-            android:layout_marginEnd="72dp"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="72dp">
 
             <android.widget.TextView
                 android:id="@+id/login_register_prompt_tv"

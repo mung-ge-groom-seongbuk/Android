@@ -1,6 +1,6 @@
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
@@ -9,7 +9,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#9EEAB7"
+            android:background="#8033CC9E"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="16dp">
@@ -51,7 +51,7 @@
 
                 <TextView
                     android:id="@+id/setting_finish_date_tv"
-                    android:layout_width="220dp"
+                    android:layout_width="143dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
@@ -61,7 +61,7 @@
 
                 <TextView
                     android:id="@+id/setting_finish_date2_tv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="105dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
 
@@ -139,7 +139,7 @@
 
                 <TextView
                     android:id="@+id/setting_goal_distance2_tv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="105dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
                     android:background="@drawable/shape_fill_white_square_rounded_5dp"
