@@ -51,7 +51,7 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="23dp"
                 android:layout_marginEnd="23dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="60dp"
                 android:background="@drawable/shape_fill_f2f2f7_square_rounded_30dp_with_border"
                 android:drawableLeft="@drawable/ic_pw"
                 android:drawablePadding="10dp"
@@ -69,57 +69,12 @@
                 android:layout_width="150dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="42dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/shape_fill_7ab28d_square_rounded_30dp"
                 android:text="Login"
                 android:textColor="#ffffff" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginBottom="42dp"
-                android:orientation="horizontal">
 
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="7dp"
-                    android:layout_weight="0.4"
-                    app:dividerColor="#80000000" />
-
-                <android.widget.TextView
-                    android:id="@+id/login_sns_description_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="간편로그인"
-                    android:textColor="#808080" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginEnd="7dp"
-                    android:layout_weight="0.4"
-                    app:dividerColor="#80000000" />
-            </LinearLayout>
-
-
-            <android.widget.Button
-                android:id="@+id/login_kakao_login_bt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/login_kakao_login_button"
-                android:drawableLeft="@drawable/login_kakao_image"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
-                android:text="카카오 로그인"
-                android:textColor="#000000" />
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
