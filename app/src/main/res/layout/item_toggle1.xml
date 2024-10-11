@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="9dp"
-            android:text="*km 이하"
+            android:text="@{toggle1Item.km + `km 이하`}"
             android:textSize="9dp"
             app:layout_constraintEnd_toStartOf="@id/item_toggle1_send_bt"
             app:layout_constraintTop_toTopOf="@id/item_toggle1_send_bt" />

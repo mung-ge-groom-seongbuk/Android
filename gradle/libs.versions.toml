@@ -4,6 +4,7 @@ compiler = "4.15.1"
 compilerVersion = "4.15.1"
 databindingCompiler = "8.6.1"
 datastorePreferences = "1.1.1"
+githubSocketIoClient = "0.6.0"
 hiltAndroid ="2.50"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -39,6 +40,7 @@ androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
 compiler-v4151 = { module = "com.github.bumptech.glide:compiler", version.ref = "compilerVersion" }
+github-socket-io-client = { module = "com.github.nkzawa:socket.io-client", version.ref = "githubSocketIoClient" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "compiler" }
 hilt-android = {module= "com.google.dagger:hilt-android", version.ref = "hiltAndroid"}
 hilt-android-compiler = {module= "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid"}
