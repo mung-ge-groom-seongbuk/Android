@@ -12,7 +12,7 @@
             android:id="@+id/fragment_chat_room_tb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#9EEAB7"
+            android:background="#8033CC9E"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
