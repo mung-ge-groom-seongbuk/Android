@@ -19,32 +19,35 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
-    var token : String? = ""
+    var token: String? = ""
     private val accountViewModel: AccountViewModel by viewModels()
     override fun setLayout() {
         setOnClickListener()
         observeLifeCycle()
+        lifecycleScope.launch {
+            GlobalApplication.instance.tokenManager.deleteAccessToken()
+        }
         lifecycleScope.launch {
             token = GlobalApplication.instance.tokenManager.getFireBaseTokenIdId().first()
         }
     }
 
     private fun setOnClickListener() {
-
-        binding.loginKakaoLoginBt.setOnClickListener{
-            val intent = Intent(this@LoginActivity,StartActivity::class.java)
+        binding.loginKakaoLoginBt.setOnClickListener {
+            val intent = Intent(this@LoginActivity, StartActivity::class.java)
             startActivity(intent)
         }
         binding.loginLoginBt.setOnClickListener {
-            if(!token.isNullOrEmpty()) {
+            if (!token.isNullOrEmpty()) {
+                val uid = binding.loginUsernameInputEt.text.toString()
                 accountViewModel.postLogIn(
                     LogInDTO(
-                        binding.loginUsernameInputEt.text.toString(),
+                        uid,
                         binding.loginPasswordInputEt.text.toString(),
                         token.toString()
                     )
                 )
-                Log.d("토큰s","$token")
+                Log.d("토큰s", "$token")
             }
         }
         binding.loginSignupTv.setOnClickListener {
@@ -56,9 +59,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 accountViewModel.logInData.collectLatest {
-                    if (it.message.isNotEmpty()) {
-                        Log.d("메세지", "Received login data: ${it.result}, Message: ${it.message}")
+                    if (!it.message.isNullOrEmpty()) {
+                        Log.d("메세지", "Received login data: ${it.token}, Message: ${it.message}")
                         if (it.message == "로그인 성공!") {
+                            GlobalApplication.instance.tokenManager.saveToken(it.token.toString())
+                            val uid = binding.loginUsernameInputEt.text.toString()
+                            GlobalApplication.instance.tokenManager.saveUserId(uid)
                             startActivityWithClear(MainActivity::class.java)
                         } else {
                             showToast(it.message)
@@ -68,4 +74,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             }
         }
     }
+
+
 }
