@@ -11,6 +11,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.example.mungge_groom.data.response.User
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.HiltAndroidApp
@@ -18,11 +19,23 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.net.CookieManager
+import java.net.CookiePolicy
 import javax.inject.Inject
 
 @HiltAndroidApp
 class GlobalApplication : Application() {
 
+    var distance = ""
+    var duration = ""
+    var cal = ""
+    var pace = ""
+    var distance1 = 0.0
+    var duration2 = 0.0
+    var cal4 = 0.0
+    var pace3 = 0.0
+    var user : User? = null
+    var users : List<User>? = null
     @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate() {
         super.onCreate()
@@ -44,9 +57,13 @@ class GlobalApplication : Application() {
                 tokenManager.saveFireBaseTokenId(msg)
             }
 
-            Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
+            CookieManager.setDefault(CookieManager().apply {
+                setCookiePolicy(CookiePolicy.ACCEPT_ALL)
+            })
+
         })
     }
+
 
     @Inject
     lateinit var tokenManager: TokenManager
