@@ -4,6 +4,7 @@
 
     <data>
 
+
         <variable
             name="ChatListItem"
             type="com.example.mungge_groom.data.response.ChatListData" />

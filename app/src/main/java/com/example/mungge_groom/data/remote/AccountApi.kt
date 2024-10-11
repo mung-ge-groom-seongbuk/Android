@@ -3,6 +3,7 @@ package com.example.mungge_groom.data.remote
 import com.example.mungge_groom.data.request.LogInDTO
 import com.example.mungge_groom.data.request.SignUpDTO
 import com.example.mungge_groom.data.request.UpdateProfileDTO
+import com.example.mungge_groom.data.response.LoginResponse
 import com.example.mungge_groom.ui.base.BaseResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -21,7 +22,7 @@ interface AccountApi {
     @POST("/login")
     suspend fun postLogIn(
         @Body logInDTO: LogInDTO
-    ): BaseResponse<String>
+    ): LoginResponse
 
     @Multipart
     @POST("/updateProfile")

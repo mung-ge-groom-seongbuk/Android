@@ -1,16 +1,12 @@
 package com.example.mungge_groom.data.remote
 
-import com.example.mungge_groom.data.request.LogInDTO
-import com.example.mungge_groom.data.request.SignUpDTO
-import com.example.mungge_groom.data.request.UpdateProfileDTO
+import com.example.mungge_groom.data.response.User
+import com.example.mungge_groom.data.response.UserResponse
 import com.example.mungge_groom.ui.base.BaseResponse
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import retrofit2.http.Body
-import retrofit2.http.Multipart
-import retrofit2.http.POST
-import retrofit2.http.Part
+import retrofit2.http.GET
 
 interface MypageApi {
-
+    @GET("/users")
+    suspend fun getUsers(
+    ): List<User>
 }

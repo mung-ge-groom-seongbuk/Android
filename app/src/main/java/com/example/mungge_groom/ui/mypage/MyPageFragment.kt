@@ -1,14 +1,20 @@
 package com.example.mungge_groom.ui.mypage
 
+import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.mungge_groom.R
 import com.example.mungge_groom.data.model.PaceCheckDate
 import com.example.mungge_groom.databinding.FragmentMyPageBinding
 import com.example.mungge_groom.extention.GlobalApplication
 import com.example.mungge_groom.ui.account.AccountViewModel
+import com.example.mungge_groom.ui.account.LoginActivity
 import com.example.mungge_groom.ui.base.BaseFragment
 import com.example.mungge_groom.ui.base.FragmentAdapter
 import com.example.mungge_groom.ui.home.PaceCheckFragment
@@ -19,22 +25,56 @@ import com.github.mikephil.charting.data.BarEntry
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
 class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
-    private val accountViewModel : AccountViewModel by activityViewModels()
+    private val accountViewModel: AccountViewModel by activityViewModels()
+    private val myPageViewModel: MypageViewModel by activityViewModels()
     override fun setLayout() {
+        setProfile()
         setTabLayout()
         setOnClickListener()
-        GlobalApplication.loadProfileImage(binding.fragmentMyPageProfileIv,"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAIVBMVEXY2Njz8/Pq6urv7+/h4eHb29vo6Oje3t7j4+Pt7e3p6ekmc3lwAAADMElEQVR4nO2bC3KDMAxEMeab+x+4JZQBEkhBlq2NZt8JvGOtPkZUFSGEEEIIIYQQQgghhBBCCCEEnXbo6hjDLzHW3dBan0dEO9ThjfrrxDQHKv60NNZnu0ETz2Q8w+xbpPQfZTyl9NZnvEB7GlS7AIP3SnNFxgR4fHVXdYTQWZ/1A+14XUcII2x4tf+6fE8EVXJXB6qS+zpAldzyx8Jofep3buSrLXC563L9eAWsnrRSHSFg2eRSX3JMbX32Lb1cRwhIHaQg865E69OviJ0+g+P3pAsBupLEC8G5koSUNQOSuBJqyAJGLRnShQzWGp4kRxZKbKXrCMFaw4SCRTBMomARDJMIB5E9CGOJgtcx3J7Yn8wgdCluhGjogMi/FEIhmXBjdjdC3BRENy2Km6bRTRvvZrDyM+q6eXxw8xzk5oHOz5Opm0dsP58V3Hzo8fPpzc3HUD+fp90sDPhZ4fCzVONnzcnN4pmfVUA/y5mVm3XZys8Cs5+V8srNkv+Ek98uJpz8CDPh5NekGRc/ixFCCCHky2mb4TGO8cLkHuM4PoYGsGfph1r0Ih/rAWc2Oexz74DRE59PHre0GE8pvcoiykxnF2O96Ln3nNFGSqMs4ymlfIT9/1Qio/ADS6vojVe6gilMZUXrnFKbKfeeqiWUed5OXti4QgHTZ3THltxv9fnDaiFveOVKukfkTMRJmxr3yaakiM23ZLJ8cR2ZlBjoyKKksD8W1H1ipENdiWQ/QwflrYJidfAd1b2bQn3JMYrdiknCWlFLXSo/VqSgZRNDg8wo2STzPHgFlZnRPLAmNILLNGMtKGQus5K+J73Am5X0PckL9MYlZCW1mJin3oXEFAzikIk0l8BcSOKVAF1I2pVA1JCFlFpiffY9ch0wuXdGnoFVvnPqIf6JCaJd3CJtHQH69z3Sbh4ssuSxZX3ud2Q6oKrhjKwmwllEahI4i0hNAjJSbZGNV9anPkKiA64cTkhKIlijNSNptwCTlixtPawPfcRDIARoyl2RzLtuhACWEVkhcSPE+szHUAgaFIIGhaBBIWhQCBoUggaFoEEhaFAIGhSCBoWgQSFoUAgap8f9Ac1KQOtCVp1TAAAAAElFTkSuQmCC")
+    }
+
+    private fun setProfile() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                myPageViewModel.getUsersData.collectLatest {
+                    GlobalApplication.instance.tokenManager.getUser(requireContext())
+                        .collect { user ->
+                            if (user != null) {
+                                Log.d("유저", "User name: ${user.name}")
+                                GlobalApplication.loadProfileImage(
+                                    binding.fragmentMyPageProfileIv,
+                                    user.profile_picture
+                                        ?: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAIVBMVEXY2Njz8/Pq6urv7+/h4eHb29vo6Oje3t7j4+Pt7e3p6ekmc3lwAAADMElEQVR4nO2bC3KDMAxEMeab+x+4JZQBEkhBlq2NZt8JvGOtPkZUFSGEEEIIIYQQQgghhBBCCCEEnXbo6hjDLzHW3dBan0dEO9ThjfrrxDQHKv60NNZnu0ETz2Q8w+xbpPQfZTyl9NZnvEB7GlS7AIP3SnNFxgR4fHVXdYTQWZ/1A+14XUcII2x4tf+6fE8EVXJXB6qS+zpAldzyx8Jofep3buSrLXC563L9eAWsnrRSHSFg2eRSX3JMbX32Lb1cRwhIHaQg865E69OviJ0+g+P3pAsBupLEC8G5koSUNQOSuBJqyAJGLRnShQzWGp4kRxZKbKXrCMFaw4SCRTBMomARDJMIB5E9CGOJgtcx3J7Yn8wgdCluhGjogMi/FEIhmXBjdjdC3BRENy2Km6bRTRvvZrDyM+q6eXxw8xzk5oHOz5Opm0dsP58V3Hzo8fPpzc3HUD+fp90sDPhZ4fCzVONnzcnN4pmfVUA/y5mVm3XZys8Cs5+V8srNkv+Ek98uJpz8CDPh5NekGRc/ixFCCCHky2mb4TGO8cLkHuM4PoYGsGfph1r0Ih/rAWc2Oexz74DRE59PHre0GE8pvcoiykxnF2O96Ln3nNFGSqMs4ymlfIT9/1Qio/ADS6vojVe6gilMZUXrnFKbKfeeqiWUed5OXti4QgHTZ3THltxv9fnDaiFveOVKukfkTMRJmxr3yaakiM23ZLJ8cR2ZlBjoyKKksD8W1H1ipENdiWQ/QwflrYJidfAd1b2bQn3JMYrdiknCWlFLXSo/VqSgZRNDg8wo2STzPHgFlZnRPLAmNILLNGMtKGQus5K+J73Am5X0PckL9MYlZCW1mJin3oXEFAzikIk0l8BcSOKVAF1I2pVA1JCFlFpiffY9ch0wuXdGnoFVvnPqIf6JCaJd3CJtHQH69z3Sbh4ssuSxZX3ud2Q6oKrhjKwmwllEahI4i0hNAjJSbZGNV9anPkKiA64cTkhKIlijNSNptwCTlixtPawPfcRDIARoyl2RzLtuhACWEVkhcSPE+szHUAgaFIIGhaBBIWhQCBoUggaFoEEhaFAIGhSCBoWgQSFoUAgap8f9Ac1KQOtCVp1TAAAAAElFTkSuQmCC"
+                                )
+                                binding.fragmentMyPageNicknameTv.text = user.nickname
+                                binding.fragmentMyPageDescriptionTv.text = user.intro
+                            } else {
+                                Log.d("No user found", "")
+                            }
+                        }
+                }
+            }
+
+        }
     }
 
     private fun setTabLayout() {
         val pageList = listOf(
-            PaceCheckFragment(PaceCheckDate("", "", "")),
-            PaceCheckFragment(PaceCheckDate("", "", "")),
-            PaceCheckFragment(PaceCheckDate("", "", ""))
+            PaceCheckFragment(PaceCheckDate("6", "${GlobalApplication.instance.distance1}",
+                GlobalApplication.instance.duration
+            )),
+            PaceCheckFragment(PaceCheckDate("2", "${GlobalApplication.instance.distance1}",
+                GlobalApplication.instance.duration
+            )),
+            PaceCheckFragment(PaceCheckDate("4", "${GlobalApplication.instance.distance1}",
+                GlobalApplication.instance.duration
+            ))
         )
 
         val fragmentStateAdapter = FragmentAdapter(requireActivity())
@@ -83,28 +123,44 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
 
     private fun setOnClickListener() {
 
-        binding.fragmentMyPageSetProfileTv.setOnClickListener{
+        binding.fragmentMyPageSetProfileTv.setOnClickListener {
             findNavController().navigate(R.id.action_myPageFragment_to_settingProfileFragment)
         }
-        binding.fragmentMyPageSetAchieveTv.setOnClickListener{
+        binding.fragmentMyPageSetAchieveTv.setOnClickListener {
             findNavController().navigate(R.id.action_myPageFragment_to_settingAchieveFragment)
         }
-        binding.fragmentMyPageSetAccountTv.setOnClickListener{
+        binding.fragmentMyPageSetAccountTv.setOnClickListener {
             findNavController().navigate(R.id.action_myPageFragment_to_settingAccountFragment)
         }
 
-        binding.fragmentMyPageNotify.setOnClickListener{
+        binding.fragmentMyPageNotify.setOnClickListener {
             findNavController().navigate(R.id.action_myPageFragment_to_notificationFragment)
+        }
+        binding.appCompatButton2.setOnClickListener{
+            //회원탈퇴
+        }
+        binding.signOut.setOnClickListener{
+            //로그아웃
+            startActivity(Intent(requireActivity(),LoginActivity::class.java))
+            requireActivity().finish()
         }
 
     }
 
-    private fun setupBarChart(view: View, chartId: Int, entries: ArrayList<BarEntry>, showGrid: Boolean, labelCount: Int, barWidth: Float) {
+    private fun setupBarChart(
+        view: View,
+        chartId: Int,
+        entries: ArrayList<BarEntry>,
+        showGrid: Boolean,
+        labelCount: Int,
+        barWidth: Float
+    ) {
         val barChart = view.findViewById<BarChart>(chartId)
 
         // 데이터 셋 생성
         val barDataSet = BarDataSet(entries, "Data Set")
-        barDataSet.color = ContextCompat.getColor(view.context, R.color.selector_tab_text) // 막대 색상 설정
+        barDataSet.color =
+            ContextCompat.getColor(view.context, R.color.selector_tab_text) // 막대 색상 설정
 
         // BarData에 데이터셋 추가
         val barData = BarData(barDataSet)

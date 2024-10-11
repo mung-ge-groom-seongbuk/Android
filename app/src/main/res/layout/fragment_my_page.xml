@@ -271,7 +271,7 @@
                     android:id="@+id/fragment_my_page_set_achieve_tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="목표 설정"
+                    android:text="거리 설정"
                     android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -311,6 +311,7 @@
                 app:layout_constraintTop_toBottomOf="@id/fragment_my_page_set_achieve_tv" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sign_out"
                 android:layout_width="65dp"
                 android:layout_height="30dp"
                 android:background="@drawable/shape_fill_d9d9d9_square_rounded_7_5dp"
