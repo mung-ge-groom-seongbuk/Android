@@ -1,6 +1,7 @@
 package com.example.mungge_groom.ui.chat
 
 import android.os.Build
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Lifecycle
@@ -14,14 +15,15 @@ import com.example.mungge_groom.databinding.FragmentChatRoomBinding
 import com.example.mungge_groom.extention.GlobalApplication
 import com.example.mungge_groom.ui.base.BaseActivity
 import com.example.mungge_groom.ui.mypage.MypageViewModel
+import com.example.mungge_groom.utils.SocketManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.util.Locale
 import java.util.TimeZone
-
+import io.socket.client.Socket
+import io.socket.emitter.Emitter
 
 @AndroidEntryPoint
 class ChatRoomFragment : BaseActivity<FragmentChatRoomBinding>(R.layout.fragment_chat_room) {
@@ -31,9 +33,55 @@ class ChatRoomFragment : BaseActivity<FragmentChatRoomBinding>(R.layout.fragment
     lateinit var chatRoomAdapter: ChatRoomAdapter
     var me: User? = null
     var you: User? = null
+    private lateinit var mSocket: Socket
 
+    private val onConnect = Emitter.Listener {
+        runOnUiThread {
+            // 연결 성공 시 처리
+        }
+    }
+
+    private val onNewMessage = Emitter.Listener { args ->
+        runOnUiThread {
+            val message = args[0] as String
+            chatViewModel.postSendChat(
+                SendChatDTO(you?.user_id.toString(), me?.user_id.toString(), message)
+            )
+            chatViewModel.getChatMessage(
+                you?.user_id.toString(), me?.user_id.toString())
+        }
+    }
+    private fun formatTimeFromDate(dateString: String): String {
+        val isoFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+        isoFormat.timeZone = TimeZone.getTimeZone("UTC")
+        val date = isoFormat.parse(dateString)
+        val timeFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+        return timeFormat.format(date)
+    }
+    // 메시지 전송 예시
+    private fun sendMessage(message: String) {
+        mSocket.emit("chatMessage", message)
+        chatViewModel.postSendChat(
+            SendChatDTO(me?.user_id.toString(), you?.user_id.toString(), message)
+        )
+        chatViewModel.getChatMessage(
+            me?.user_id.toString(), you?.user_id.toString())
+        binding.et.text.clear()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mSocket.off(Socket.EVENT_CONNECT, onConnect)
+        mSocket.off("chatMessage", onNewMessage)
+        SocketManager.closeConnection()
+    }
     @RequiresApi(Build.VERSION_CODES.O)
     override fun setLayout() {
+        SocketManager.setSocket()
+        mSocket = SocketManager.getSocket()
+        mSocket.on(Socket.EVENT_CONNECT, onConnect)
+        mSocket.on("chatMessage", onNewMessage)
+        SocketManager.establishConnection()
         initSetting()
         setOnClicked()
     }
@@ -74,9 +122,10 @@ class ChatRoomFragment : BaseActivity<FragmentChatRoomBinding>(R.layout.fragment
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 chatViewModel.chatMessage.collectLatest {
+                    it.messages.map { formatTimeFromDate(it.created_at) }
                     chatRoomAdapter.submitList(it.messages)
-                    binding.fragmentChatRoomRv.scrollToPosition(chatRoomAdapter.itemCount - 1)
                     binding.fragmentChatRoomRv.adapter = chatRoomAdapter
+                    binding.fragmentChatRoomRv.scrollToPosition(chatRoomAdapter.itemCount - 1)
                 }
             }
         }
@@ -86,14 +135,10 @@ class ChatRoomFragment : BaseActivity<FragmentChatRoomBinding>(R.layout.fragment
     private fun setOnClicked() {
         binding.fragmentChatRoomSendBt.setOnClickListener {
             val message = binding.et.text.toString()
-            chatViewModel.postSendChat(
-                SendChatDTO(me?.user_id.toString(), you?.user_id.toString(), message)
-            )
-            chatViewModel.getChatMessage(
-                me?.user_id.toString(), you?.user_id.toString())
-            binding.et.text.clear()
+            if (message.isNotBlank()) {
+                sendMessage(message)
+                Log.d("okhttp","$me, $you")
+            }
         }
     }
-
-
 }
