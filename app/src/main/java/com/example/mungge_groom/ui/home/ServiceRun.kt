@@ -1,6 +1,7 @@
 package com.example.mungge_groom.ui.home
 
 import android.Manifest
+import android.app.AlertDialog
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -11,14 +12,25 @@ import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import com.example.mungge_groom.R
+import com.example.mungge_groom.data.model.RunningData
+import com.example.mungge_groom.data.response.User
+import com.example.mungge_groom.extention.GlobalApplication
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import java.time.LocalDateTime
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
@@ -29,12 +41,25 @@ class ServiceRun : Service() {
     private val handler = Handler(Looper.getMainLooper())
     private val locationUpdateInterval: Long = 1000 // 1초 간격으로 위치 업데이트
     private var lastUpdateTime: Long = 0 // 시작 시간 저장
+
     companion object {
         private var instance: ServiceRun? = null
-
         fun getInstance(): ServiceRun? {
-            return instance
+            if (instance == null) {
+                instance = ServiceRun()
+            }
+            return instance!!
         }
+    }
+
+    private fun sendRunningData(time: String, distance: String, pace: String) {
+        val cal = distance.toDouble() * 60.0
+        GlobalApplication.instance.cal = cal.toString()
+        GlobalApplication.instance.distance = distance
+        GlobalApplication.instance.duration = time
+        GlobalApplication.instance.pace = pace
+
+        Log.d("okhttp","${GlobalApplication.instance.duration} ${GlobalApplication.instance.distance} ${GlobalApplication.instance.pace} ${GlobalApplication.instance.cal} ${GlobalApplication.instance.user}")
     }
 
     private var isRunning = false
@@ -50,7 +75,8 @@ class ServiceRun : Service() {
     override fun onCreate() {
         super.onCreate()
         instance = this // 서비스 인스턴스를 저장
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(applicationContext)
+        fusedLocationProviderClient =
+            LocationServices.getFusedLocationProviderClient(applicationContext)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -178,7 +204,12 @@ class ServiceRun : Service() {
         val timeString = formatTime(totalTime.toLong())
         val distanceString = String.format("%.2f", totalKm)
 
-        Toast.makeText(applicationContext, "시간: $timeString, 거리: ${distanceString}km, 페이스: $pace", Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            applicationContext,
+            "시간: $timeString, 거리: ${distanceString}km, 페이스: $pace",
+            Toast.LENGTH_LONG
+        ).show()
+        sendRunningData(timeString,distanceString,pace)
 
         // 데이터 초기화
         time = 0.0
@@ -186,17 +217,20 @@ class ServiceRun : Service() {
         pace = ""
         startTime = 0
     }
+
     private fun formatTime(seconds: Long): String {
         val hours = seconds / 3600
         val minutes = (seconds % 3600) / 60
         val secs = seconds % 60
         return String.format("%02d:%02d:%02d", hours, minutes, secs)
     }
+
     override fun onDestroy() {
         super.onDestroy()
         stopRunning()
         instance = null
     }
+
     //1. 위도와 경도로 거리 구하는 방법 (Haversine Formula)
     //위도와 경도를 이용해 두 지점 간의 거리를 구하려면 Haversine 공식을 사용
     // 이 공식은 구형 지구를 가정하여 두 지점 사이의 거리를 계산하는 데 사용
@@ -218,7 +252,7 @@ class ServiceRun : Service() {
     private fun calculatePace(distanceInMeters: Double, timeInSeconds: Double): String {
         if (distanceInMeters < 1) {
             // 거리가 1미터 미만인 경우 페이스를 계산하지 않음
-            return "이동 거리가 1미터 미만 입니다."
+            return "0"
         }
 
         val distanceInKilometers = distanceInMeters / 1000.0
@@ -228,7 +262,7 @@ class ServiceRun : Service() {
         // 페이스를 "분:초" 형식으로 반환
         val minutes = pace.toInt()
         val seconds = ((pace - minutes) * 60).toInt()
-        return "$minutes 분 $seconds 초 / km"
+        return "$minutes"
     }
 
 
