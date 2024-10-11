@@ -271,7 +271,7 @@
                     android:id="@+id/fragment_my_page_set_achieve_tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="목표 설정"
+                    android:text="거리 설정"
                     android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
