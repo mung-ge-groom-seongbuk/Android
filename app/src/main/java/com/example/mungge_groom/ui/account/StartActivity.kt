@@ -33,7 +33,6 @@ import java.io.FileOutputStream
 
 @AndroidEntryPoint
 class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start) {
-    private val TAG = "StartActivity"
     private val accountViewModel: AccountViewModel by viewModels()
     var uri: Uri? = null
     private val galleryPermissionLauncher =
@@ -51,7 +50,6 @@ class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start
                 uri = result.data?.data
                 uri?.let {
                     GlobalApplication.loadProfileImage(binding.profileImage, it)
-                    Log.d(TAG, "Selected Image URI: $it")
                 }
             }
         }
@@ -146,25 +144,6 @@ class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start
         return value.toRequestBody("text/plain".toMediaTypeOrNull())
     }
 
-    fun prepareFilePart(
-        partName: String,
-        fileUri: Uri,
-        contentResolver: ContentResolver
-    ): MultipartBody.Part {
-        // 파일 경로를 가져오는 대신 InputStream을 사용하여 파일의 데이터를 읽어 임시 파일에 저장
-        val inputStream = contentResolver.openInputStream(fileUri)
-        val tempFile = File(cacheDir, "temp_image_file.jpg") // 캐시 디렉토리에 임시 파일 생성
-
-        inputStream?.use { input ->
-            tempFile.outputStream().use { output ->
-                input.copyTo(output)
-            }
-        }
-
-        // 임시 파일을 MultipartBody.Part로 변환
-        val requestFile = tempFile.asRequestBody("image/*".toMediaTypeOrNull())
-        return MultipartBody.Part.createFormData(partName, tempFile.name, requestFile)
-    }
 
     private fun sendServerDataWithProfile(
         contentResolver: ContentResolver,
