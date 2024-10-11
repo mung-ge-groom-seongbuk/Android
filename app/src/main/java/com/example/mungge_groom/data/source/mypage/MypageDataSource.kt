@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.mungge_groom.data.remote.ChatApi
 import com.example.mungge_groom.data.remote.MypageApi
 import com.example.mungge_groom.data.request.NotificationDTO
+import com.example.mungge_groom.data.response.User
 import com.example.mungge_groom.data.response.UserResponse
 import com.example.mungge_groom.ui.base.BaseResponse
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +15,7 @@ import javax.inject.Inject
 class MypageDataSource @Inject constructor(
     private val mypageApi: MypageApi
 ) {
-    fun getUsers(): Flow<BaseResponse<List<UserResponse>>> = flow {
+    fun getUsers(): Flow<List<User>> = flow {
         val result = mypageApi.getUsers()
         emit(result)
     }.catch {
