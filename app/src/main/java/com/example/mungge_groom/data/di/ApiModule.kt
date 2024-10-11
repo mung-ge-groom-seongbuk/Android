@@ -3,6 +3,7 @@ package com.example.mungge_groom.data.di
 import com.example.mungge_groom.data.remote.AccountApi
 import com.example.mungge_groom.data.remote.ChatApi
 import com.example.mungge_groom.data.remote.HomeApi
+import com.example.mungge_groom.data.remote.JwtApi
 import com.example.mungge_groom.data.remote.MypageApi
 import dagger.Module
 import dagger.Provides
@@ -37,5 +38,10 @@ object ApiModule {
     fun provideMypageApi(
         @NetworkModule.MainRetrofit retrofit: Retrofit
     ) : MypageApi = retrofit.create(MypageApi::class.java)
+    @Provides
+    @Singleton
+    fun provideJwtApi(
+        @NetworkModule.MainRetrofit retrofit: Retrofit
+    ) : JwtApi = retrofit.create(JwtApi::class.java)
 
 }
